@@ -5,6 +5,7 @@ __kernel void entry_point(__global float* in_frame, __global float* low_out, int
     int my_locale_index = myid % padded_size;
     int my_global_index = myid / padded_size;
     long my_index = powed_limit * my_global_index + my_locale_index;
-    float for_write = my_locale_index==0||my_locale_index==1||my_locale_index>=low_mid?0:in_frame[my_index];
+    float for_write = my_locale_index>=low_mid?99:in_frame[my_index];
+    printf("for write %f\n", for_write);
     low_out[myid]=for_write;
 }

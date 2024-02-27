@@ -188,7 +188,7 @@ public:
     std::string window_function =
         "inline float window_func(const int powed, const int index, const int window_size)\n"
         "{\n"
-        "    return (0.42 - 0.5*cos(2.0*M_PI*(float)index/(float)window_size)+0.08*cos(4.0*M_PI*(float)index/(window_size)));\n"
+        "    return (0.5 - 0.5*cos(2.0*M_PI*(float)index/(float)(window_size-1)));\n"
         "}\n"
         "\n"
         "__kernel void entry_point(__global float2* frame_in, __global float2* frame_out, int window_radix_2_size)\n"
@@ -222,12 +222,15 @@ public:
         "inline float cmod(float2 a){\n"
         "    return (sqrt(a.x*a.x + a.y*a.y));\n"
         "}\n"
+        "\n"
         "__kernel void entry_point(__global float2* in_frame, __global float* out_frame, int origin_size)\n"
         "{\n"
         "    long myid = get_global_id(0);\n"
         "    long half_size = (long)origin_size / 2;\n"
         "    long index = ((long)origin_size * ( myid / half_size )) + ( myid % half_size );\n"
-        "    out_frame[myid]=cmod(in_frame[index]);\n"
+        "    float powered =cmod(in_frame[index]);\n"
+        "    powered = myid%half_size < 1?0:powered;\n"
+        "    out_frame[myid]=powered;\n"
         "    \n"
         "    \n"
         "}\n";
@@ -272,7 +275,7 @@ public:
         "    int my_locale_index = myid % padded_size;\n"
         "    int my_global_index = myid / padded_size;\n"
         "    long my_index = powed_limit * my_global_index + my_locale_index;\n"
-        "    float for_write = my_locale_index==0||my_locale_index==1||my_locale_index>=low_mid?0:in_frame[my_index];\n"
+        "    float for_write = my_locale_index>=low_mid?0:in_frame[my_index];\n"
         "    low_out[myid]=for_write;\n"
         "}\n";
     std::string split_mid_band =
@@ -304,6 +307,22 @@ public:
         "    integ_out[myid].x=low_in[myid];\n"
         "    integ_out[myid].y=mid_in[myid];\n"
         "    integ_out[myid].z=high_in[myid];\n"
+        "}\n";
+    std::string to_dbfs =
+        "float dbfs(float powered, int window_origin_size, int added_size){\n"
+        "    float result = 10.0 * log10(pow(powered,2) / (1.0 * (float)window_origin_size*(float)added_size));\n"
+        "    \n"
+        "    return result+20.0;\n"
+        "}\n"
+        "\n"
+        "__kernel void entry_point(__global float3* in_frame, __global float3* out_frame, int window_radix_2, int low_size, int mid_size, int high_size)\n"
+        "{\n"
+        "    long myid = get_global_id(0);\n"
+        "    out_frame[myid].x = dbfs(in_frame[myid].x,window_radix_2,low_size);\n"
+        "    out_frame[myid].y = dbfs(in_frame[myid].y,window_radix_2,mid_size);\n"
+        "    out_frame[myid].z = dbfs(in_frame[myid].z,window_radix_2,high_size);\n"
+        "    \n"
+        "    \n"
         "}\n";
 };
 

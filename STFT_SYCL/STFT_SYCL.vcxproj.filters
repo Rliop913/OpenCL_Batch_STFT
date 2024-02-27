@@ -30,9 +30,6 @@
     <ClInclude Include="cl_inside.h">
       <Filter>리소스 파일</Filter>
     </ClInclude>
-    <ClInclude Include="miniaudio.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="STFT.cpp">
@@ -42,9 +39,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="cl_global_custom.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="miniaudio.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

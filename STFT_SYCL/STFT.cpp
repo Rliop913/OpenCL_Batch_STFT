@@ -88,30 +88,7 @@ OPENCL_ACC::overlap_and_extend_for_STFT(float* data_origin, const ma_uint64& ori
         both_side_z_padding_size
     );//overlaped is alloced with new
 
-
-
     return overlaped;
-
-
-
-
-
-
-
-
-    //Kernel KN = cl_facade::create_kernel(CLS->overlap, "entry_point", CT, DV);
-    //CommandQueue CQ = clboost::make_cq(CT, DV);
-
-    //Buffer dat_in = clboost::make_r_buf<float>(CT, origin_length, data_origin);
-    //Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, overlaped_length);
-    //cl_int2 tempint2;
-    //tempint2.x = origin_length / powed_size;
-    //tempint2.y = origin_length % powed_size;
-    //clboost::set_args(KN, dat_in, dat_out, powed_size, overlap_frame, tempint2);
-    //clboost::enq_q(CQ, KN, overlaped_length);
-    //cl_float2* overlaped = new cl_float2[overlaped_length];
-    //clboost::q_read<cl_float2>(CQ, dat_out, true, overlaped_length, overlaped);
-    //return overlaped;
 
 
 }
@@ -127,28 +104,11 @@ OPENCL_ACC::window_STFT(cl_float2* overlap_array, const ma_uint64& frame_length,
         frame_length,
         window_radix_size
     );
-
-
-
-
-
-
-
-    //Kernel KN = cl_facade::create_kernel(CLS->hamming, "entry_point", CT, DV);
-    //CommandQueue CQ = clboost::make_cq(CT, DV);
-
-    //Buffer dat_in = clboost::make_r_buf<cl_float2>(CT, frame_length, overlap_array);
-    //Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, frame_length);
-    //clboost::set_args(KN, dat_in, dat_out, window_radix_size);
-    //clboost::enq_q(CQ, KN, frame_length);
-    //clboost::q_read<cl_float2>(CQ, dat_out, true, frame_length, overlap_array);
 }
 
 void 
 OPENCL_ACC::bit_reverse_STFT(cl_float2* data_array, const ma_uint64& frame_length, const int& window_radix_size)
 {
-
-
     gpgpu_facade<cl_float2, cl_float2>(
         CLS->bit_reverse_STFT,
         data_array,
@@ -158,20 +118,6 @@ OPENCL_ACC::bit_reverse_STFT(cl_float2* data_array, const ma_uint64& frame_lengt
         frame_length,
         window_radix_size
     );
-
-
-
-
-
-    //Kernel KN = cl_facade::create_kernel(CLS->bit_reverse_STFT, "entry_point", CT, DV);
-    //CommandQueue CQ = clboost::make_cq(CT, DV);
-
-    //Buffer dat_in = clboost::make_r_buf<cl_float2>(CT,frame_length, data_array);
-    //Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, frame_length);
-    //clboost::set_args(KN, dat_in, dat_out, window_radix_size);
-    //clboost::enq_q(CQ, KN, frame_length);
-    //clboost::q_read<cl_float2>(CQ, dat_out, true, frame_length, data_array);
-    //
 }
 
 void
@@ -189,10 +135,6 @@ OPENCL_ACC::butterfly_STFT(cl_float2* overlap_array, const ma_uint64& frame_leng
         clboost::enq_q(CQ, KN, frame_length / 2);
         clboost::q_read<cl_float2>(CQ, dat_out, false, frame_length, overlap_array);
     }
-
-
-
-
 }
 float*
 OPENCL_ACC::power_them(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_size)
@@ -210,19 +152,14 @@ OPENCL_ACC::power_them(cl_float2* overlap_array, const ma_uint64& frame_length, 
         powed_size
     );
     delete[] overlap_array;
-
-    /*for (ma_uint64 i = 0; i < 2048; ++i) {
-        std::cout << powered_data[i] << std::endl;
-    }*/
-
     return powered_data;
 
 }
 cl_float3*
-OPENCL_ACC::three_bander(float* powered_STFT, const ma_uint64& frame_length, const int& window_radix_size, const int& quot)
+OPENCL_ACC::three_bander(float* powered_STFT, const int& window_radix_size, int& low, int& mid, int& high, const int& quot)
 {
     int powed_half = pow(2, window_radix_size-1);
-    ma_uint64 only_usables = frame_length / 2;
+    ma_uint64 only_usables = quot * powed_half;
 
     cl_float3* three_band_out = nullptr;
 
@@ -231,20 +168,20 @@ OPENCL_ACC::three_bander(float* powered_STFT, const ma_uint64& frame_length, con
 
     int low_mid = (int)(((double)EQ_LOW_MID) / freq_jump_size)+1;
     int mid_high = (int)(((double)EQ_MID_HIGH) / freq_jump_size)+1;
+    int high_toohigh = (int)(((double)EQ_HIGH_TOO_HIGH) / freq_jump_size) + 1;
+    //11, 107-11, 512-107
+    low = low_mid;
+    int low_padded_size = to_big_radix_2(low);
 
-    int low_range = low_mid;
-    int low_padded_size = to_big_radix_2(low_range);
+    mid = mid_high - low_mid;
+    int mid_padded_size = to_big_radix_2(mid);
 
-    int mid_range = mid_high - low_mid;
-    int mid_padded_size = to_big_radix_2(mid_range);
-
-    int high_range = powed_half - mid_high;
-    int high_padded_size = to_big_radix_2(high_range);
+    high = high_toohigh - mid_high;
+    int high_padded_size = to_big_radix_2(high);
 
     float* lows = nullptr;
     float* mids = nullptr;
     float* highs = nullptr;
-
     gpgpu_facade<float, float>(
         CLS->split_low_band,
         powered_STFT,
@@ -381,14 +318,14 @@ OPENCL_ACC::three_divide_and_conquer(
 
 
 
-cl_float3*
-OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& window_radix_2, const double& overlap_ratio, const int& both_side_z_padding_size, int& number_of_index)
+float*
+OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& window_radix_2, const double& overlap_ratio, const int& front_side_z_padding_size, int& number_of_index)
 {
 
-    int powed_radix = pow(2, 10);
+    int powed_radix = pow(2, (int)window_radix_2);
     int fft_quotient = full_length / (int)((double)powed_radix * (1.0 - overlap_ratio));
     ma_uint64 overlaped_full_frame = fft_quotient * powed_radix;
-    cl_float2* overlap_out = overlap_and_extend_for_STFT(full_frame, full_length, overlaped_full_frame, window_radix_2, (int)((double)powed_radix * (1.0 - overlap_ratio)), both_side_z_padding_size);
+    cl_float2* overlap_out = overlap_and_extend_for_STFT(full_frame, full_length, overlaped_full_frame, window_radix_2, (int)((double)powed_radix * (1.0 - overlap_ratio)), front_side_z_padding_size);
 
     window_STFT(overlap_out, overlaped_full_frame, window_radix_2);
 
@@ -397,24 +334,24 @@ OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& 
     
 
     butterfly_STFT(overlap_out, overlaped_full_frame, window_radix_2);
+    number_of_index = fft_quotient;
+    return power_them(overlap_out, overlaped_full_frame, window_radix_2);
 
-    float* powered = power_them(overlap_out, overlaped_full_frame, window_radix_2);
-
-    cl_float3* three_band_out = three_bander(powered, overlaped_full_frame, window_radix_2, fft_quotient);
+    /*cl_float3* three_band_out = three_bander(powered, overlaped_full_frame, window_radix_2, fft_quotient);
 
     number_of_index = fft_quotient;
-    return three_band_out;
+    return three_band_out;*/
 }
 
-
-void
-OPENCL_ACC::cl_fft(float* data_array, const int& data_length_radix_2)
-{
-    cl_float2 *complexed = bit_reverse(data_array, data_length_radix_2);
-    butterfly_stage_radix_2(complexed, data_length_radix_2,data_array);
-
-
-}
+//
+//void
+//OPENCL_ACC::cl_fft(float* data_array, const int& data_length_radix_2)
+//{
+//    cl_float2 *complexed = bit_reverse(data_array, data_length_radix_2);
+//    butterfly_stage_radix_2(complexed, data_length_radix_2,data_array);
+//
+//
+//}
 
 
 
@@ -463,61 +400,102 @@ OPENCL_ACC::butterfly_stage_radix_2(cl_float2* data, const int& data_length_radi
     clboost::q_read<float>(CQ, fin_out, true, powed_size, data_out);
     delete[] data;
 }
-//
-#include "miniaudio.h"
-//
-#include <iostream>
-int main() {
-        OPENCL_ACC oa = OPENCL_ACC();
-    std::vector<std::pair<std::string, std::string>> list = oa.get_platform_device_list();
-    /*for(int i = 0; i < list.size(); ++i) {
-        std::cout << list[i].first << "--" << list[i].second << std::endl;
-    }*/
-    oa.set_platform_device(
-        "NVIDIA CUDA", "NVIDIA GeForce GTX 1660 Ti with Max-Q Design");//임시로 하드코딩
 
 
-    //oa.STFT_TESTER();
-
-
-    ma_decoder_config deconf = ma_decoder_config_init(ma_format_f32, 1, 48000);
-    ma_decoder dec;
-    ma_decoder_init_file("E:/HOP.wav", &deconf, &dec);
-    ma_uint64 length;
-    ma_decoder_get_length_in_pcm_frames(&dec, &length);
-    length /= 10;
-    float* full_frame = new float[length];
-    ma_uint64 check;
-    ma_decoder_read_pcm_frames(&dec, full_frame, length, &check);
-    ASSERT_EQ(check, length);
-    int quot = 0;
-    cl_float3* tband = oa.cl_STFT(full_frame, length, 10, 0.8, 512, quot);
-
-    for (int i = 0; i < quot; ++i) {
-        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << "," << std::endl;
-    }
-    getchar();
-
-
-
-    return 0;
+void
+OPENCL_ACC::to_dbfs(cl_float3* data, const int& window_radix_size, const int& low, const int& mid, const int& high, const int& quot )
+{
+    int wos = pow(2, window_radix_size);
+    gpgpu_facade<cl_float3, cl_float3>(
+        CLS->to_dbfs,
+        data,
+        quot,
+        data,
+        quot,
+        quot,
+        wos,
+        low,
+        mid,
+        high
+    );
+    
 }
 
+//
+//
+////
+//#include "miniaudio.h"
+////
+//#include <iostream>
+//int main() {
+//        OPENCL_ACC oa = OPENCL_ACC();
+//    std::vector<std::pair<std::string, std::string>> list = oa.get_platform_device_list();
+//    /*for(int i = 0; i < list.size(); ++i) {
+//        std::cout << list[i].first << "--" << list[i].second << std::endl;
+//    }*/
+//    oa.set_platform_device(
+//        "NVIDIA CUDA", "NVIDIA GeForce GTX 1660 Ti with Max-Q Design");//임시로 하드코딩
+//
+//
+//    //oa.STFT_TESTER();
+//    int radix = 15;
+//
+//    ma_decoder_config deconf = ma_decoder_config_init(ma_format_f32, 1, 48000);
+//    ma_decoder dec;
+//    ma_decoder_init_file("E:/Word Of Old.wav", &deconf, &dec);
+//    ma_uint64 length;
+//    ma_decoder_get_length_in_pcm_frames(&dec, &length);
+//    length /= 5;
+//    float* full_frame = new float[length];
+//    ma_uint64 check;
+//    ma_decoder_read_pcm_frames(&dec, full_frame, length, &check);
+//    ASSERT_EQ(check, length);
+//    int quot = 0;
+//    int low = 0;
+//    int mid = 0;
+//    int high = 0;
+//    float* stft_output = oa.cl_STFT(full_frame, length, radix, 0.9, 16384, quot);
+//    cl_float3* tband = oa.three_bander(stft_output, radix, low, mid, high, quot);
+//    oa.to_dbfs(tband, radix, low, mid, high, quot);
+//    for (int i = 0; i < quot; ++i) {
+//        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << std::endl;
+//    }
+//    getchar();
+//
+//
+//
+//    return 0;
+//}
 
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //#define TD_OVER 10000
 //

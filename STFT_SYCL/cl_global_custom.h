@@ -83,9 +83,10 @@ clboost::q_read(CommandQueue& q, Buffer& wbuf, const bool check_dirct, const int
 //{
 //	q.enqueueReadBuffer(wbuf, (check_dirct ? CL_TRUE : CL_FALSE), 0, sizeof(P) * size, data.data(), wait_ev, this_event);
 //}
+
 template<typename P>
 void
 clboost::q_read(CommandQueue& q, Buffer& wbuf, const bool check_dirct, const int& size, P* data)
-{
-	q.enqueueReadBuffer(wbuf, (check_dirct ? CL_TRUE : CL_FALSE), 0, sizeof(P) * size, data);
+{	
+	ASSERT_EQ(q.enqueueReadBuffer(wbuf, (check_dirct ? CL_TRUE : CL_FALSE), 0, sizeof(P) * size, data),0);
 }

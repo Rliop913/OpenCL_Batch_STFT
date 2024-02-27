@@ -42,7 +42,7 @@
     <EnableDPCppRuntimeEnvironment>false</EnableDPCppRuntimeEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -143,13 +143,11 @@
     <ClInclude Include="cl_global_custom.h" />
     <ClInclude Include="cl_inside.h" />
     <ClInclude Include="custom_assert.h" />
-    <ClInclude Include="miniaudio.h" />
     <ClInclude Include="STFT.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cl_FACADE.cpp" />
     <ClCompile Include="cl_global_custom.cpp" />
-    <ClCompile Include="miniaudio.c" />
     <ClCompile Include="STFT.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
