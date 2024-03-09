@@ -8,7 +8,7 @@ float dbfs(float powered, int window_origin_size, int added_size){
     return result;
 }
 
-__kernel void entry_point(__global float3* in_frame, __global float3* out_frame, int window_radix_2, int low_size, int mid_size, int high_size)
+__kernel void to_dbfs(__global float3* in_frame, __global float3* out_frame, int window_radix_2, int low_size, int mid_size, int high_size)
 {
     long myid = get_global_id(0);
     out_frame[myid].x = dbfs(in_frame[myid].x,window_radix_2,low_size);

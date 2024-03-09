@@ -109,7 +109,7 @@ long2 indexer(const long ID,const int stage)
 
 
 //Kernel entry point
-__kernel void entry_point(__global float2* in_frame, __global float2* out_frame, int radix_2, int stage)
+__kernel void butterfly_stft(__global float2* in_frame, __global float2* out_frame, int radix_2, int stage)
 {
     long powed_stage = (long)pow(2.0,stage);
     long myid = get_global_id(0);

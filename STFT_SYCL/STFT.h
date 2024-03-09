@@ -1,7 +1,7 @@
 #pragma once
 #include "cl_FACADE.h"
 #include "cl_global_custom.h"
-#include "cl_inside.h"
+#include "cl_embedded.h"
 #include <thread>
 #include <vector>
 #define ON_UNIT_TEST
@@ -17,8 +17,10 @@ private:
 public:
 #endif ON_UNIT_TEST
 	template<class data_in_T, class data_out_T, class ... Args>
+
 	void gpgpu_facade(
 		const std::string& CL_C_code, 
+		const std::string& CL_C_entry_name,
 		data_in_T*& in_data_P, 
 		const ma_uint64& in_data_length,
 		data_out_T*& out_data_P,
@@ -36,10 +38,7 @@ public:
 		const ma_uint64& core_size,
 		const Args& ... args);
 
-	CL_INSIDE *CLS;
-	[[nodiscard]]
-	cl_float2* bit_reverse(float* data_array, const int& data_length_radix_2);
-	void butterfly_stage_radix_2(cl_float2* data, const int& data_length_radix_2, float* data_out);
+	cl_embed *CLS;
 
 	[[nodiscard]]
 	cl_float2* overlap_and_extend_for_STFT(float* data_origin, const ma_uint64& origin_length, const ma_uint64& overlaped_length, const int& radix_2_size, const int& overlap_frame, const int& both_side_z_padding_size);
@@ -76,12 +75,15 @@ public:
 	//void STFT_TESTER();
 };
 
+#ifndef NO_EMBEDDED_CL
+
 
 
 template <class data_in_T, class data_out_T, class ... Args>
 void 
 OPENCL_ACC::gpgpu_facade(
 	const std::string& CL_C_code,
+	const std::string& CL_C_entry_name,
 	data_in_T*& in_data_P,
 	const ma_uint64& in_data_length,
 	data_out_T*& out_data_P,
@@ -89,7 +91,7 @@ OPENCL_ACC::gpgpu_facade(
 	const ma_uint64& core_size,
 	const Args& ... args)
 {
-	Kernel KN = cl_facade::create_kernel(CL_C_code, "entry_point", CT, DV);
+	Kernel KN = cl_facade::create_kernel(CL_C_code, CL_C_entry_name, CT, DV);
 	CommandQueue CQ = clboost::make_cq(CT, DV);
 
 	Buffer data_in = clboost::make_r_buf<data_in_T>(CT, in_data_length, in_data_P);
@@ -108,10 +110,17 @@ OPENCL_ACC::gpgpu_facade(
 	
 }
 
+#endif // !NO_EMBEDDED_CL
+
+
+#ifdef NO_EMBEDDED_CL
+
+
 template <class data_in_T, class data_out_T, class ... Args>
 void
-OPENCL_ACC::gpgpu_facade_read_clfile(
+OPENCL_ACC::gpgpu_facade(
 	const std::string& CL_C_path,
+	const std::string& CL_C_entry_name,
 	data_in_T*& in_data_P,
 	const ma_uint64& in_data_length,
 	data_out_T*& out_data_P,
@@ -119,7 +128,7 @@ OPENCL_ACC::gpgpu_facade_read_clfile(
 	const ma_uint64& core_size,
 	const Args& ... args)
 {
-	Kernel KN = cl_facade::create_kernel(CL_C_path, "entry_point", CT, DV, true);
+	Kernel KN = cl_facade::create_kernel(CL_C_path, CL_C_entry_name, CT, DV, true);
 	CommandQueue CQ = clboost::make_cq(CT, DV);
 
 	Buffer data_in = clboost::make_r_buf<data_in_T>(CT, in_data_length, in_data_P);
@@ -137,3 +146,4 @@ OPENCL_ACC::gpgpu_facade_read_clfile(
 	clboost::q_read<data_out_T>(CQ, data_out, true, out_data_length, out_data_P);
 
 }
+#endif // NO_EMBEDDED_CL

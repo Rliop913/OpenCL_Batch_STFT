@@ -15,7 +15,7 @@ inline float cmod(float2 a){
     return (sqrt(a.x*a.x + a.y*a.y));
 }
 
-__kernel void entry_point(__global float2* in_frame, __global float* out_frame, int origin_size)
+__kernel void to_power(__global float2* in_frame, __global float* out_frame, int origin_size)
 {
     long myid = get_global_id(0);
     long half_size = (long)origin_size / 2;

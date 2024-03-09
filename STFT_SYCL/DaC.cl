@@ -1,5 +1,5 @@
 
-__kernel void entry_point(__global float* in_frame, __global float* out_frame)
+__kernel void DaC(__global float* in_frame, __global float* out_frame)
 {
     long myid = get_global_id(0);
     int2 my_index;

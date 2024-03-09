@@ -11,7 +11,7 @@
 
 
 //Kernel entry point
-__kernel void entry_point(__global float* frame_in, __global float2* frame_out, int window_frame,const int overlap_frame, int2 acc_able_frame, int front_side_zero_padding_size)
+__kernel void overlap(__global float* frame_in, __global float2* frame_out, int window_frame,const int overlap_frame, int2 acc_able_frame, int front_side_zero_padding_size)
 {
 
     unsigned long myid = get_global_id(0);

@@ -52,11 +52,11 @@ OPENCL_ACC::set_platform_device(const std::string& platform, const std::string& 
 
 OPENCL_ACC::OPENCL_ACC(const std::string& platform, const std::string& device)
 {
-    CLS = new CL_INSIDE();
+    CLS = new cl_embed();
     set_platform_device(platform, device);
 }
 OPENCL_ACC::OPENCL_ACC() {
-    CLS = new CL_INSIDE();
+    CLS = new cl_embed();
 
 }
 OPENCL_ACC::~OPENCL_ACC() {
@@ -77,6 +77,7 @@ OPENCL_ACC::overlap_and_extend_for_STFT(float* data_origin, const ma_uint64& ori
     cl_float2* overlaped = nullptr;
     gpgpu_facade<float, cl_float2>(
         CLS->overlap,
+        "overlap",
         data_origin,
         origin_length,
         overlaped,
@@ -96,7 +97,8 @@ void
 OPENCL_ACC::window_STFT(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_size)
 {
     gpgpu_facade<cl_float2,cl_float2>(
-        CLS->window_function,
+        CLS->windowing,
+        "windowing",
         overlap_array,
         frame_length,
         overlap_array,
@@ -110,7 +112,8 @@ void
 OPENCL_ACC::bit_reverse_STFT(cl_float2* data_array, const ma_uint64& frame_length, const int& window_radix_size)
 {
     gpgpu_facade<cl_float2, cl_float2>(
-        CLS->bit_reverse_STFT,
+        CLS->bitreverse_stft,
+        "bitreverse_stft",
         data_array,
         frame_length,
         data_array,
@@ -124,7 +127,7 @@ void
 OPENCL_ACC::butterfly_STFT(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_2_size)
 {
     int powed_size = pow(2, window_radix_2_size);
-    Kernel KN = cl_facade::create_kernel(CLS->butterfly_STFT, "entry_point", CT, DV);
+    Kernel KN = cl_facade::create_kernel(CLS->butterfly_stft, "butterfly_stft", CT, DV);
     CommandQueue CQ = clboost::make_cq(CT, DV);
 
     for (int stage = 0; stage < window_radix_2_size; ++stage) {
@@ -144,6 +147,7 @@ OPENCL_ACC::power_them(cl_float2* overlap_array, const ma_uint64& frame_length, 
     float* powered_data = nullptr;
     gpgpu_facade<cl_float2, float>(
         CLS->to_power,
+        "to_power",
         overlap_array,
         frame_length,
         powered_data,
@@ -184,6 +188,7 @@ OPENCL_ACC::three_bander(float* powered_STFT, const int& window_radix_size, int&
     float* highs = nullptr;
     gpgpu_facade<float, float>(
         CLS->split_low_band,
+        "split_low_band",
         powered_STFT,
         only_usables,
         lows,
@@ -195,6 +200,7 @@ OPENCL_ACC::three_bander(float* powered_STFT, const int& window_radix_size, int&
     );
     gpgpu_facade<float, float>(
         CLS->split_mid_band,
+        "split_mid_band",
         powered_STFT,
         only_usables,
         mids,
@@ -207,6 +213,7 @@ OPENCL_ACC::three_bander(float* powered_STFT, const int& window_radix_size, int&
     );
     gpgpu_facade<float, float>(
         CLS->split_high_band,
+        "split_high_band",
         powered_STFT,
         only_usables,
         highs,
@@ -283,9 +290,9 @@ OPENCL_ACC::three_divide_and_conquer(
     float*& high, const int& high_range,
     const int& number_of_owner)
 {
-    Kernel lowKN = cl_facade::create_kernel(CLS->DaC, "entry_point", CT, DV);
-    Kernel midKN = cl_facade::create_kernel(CLS->DaC, "entry_point", CT, DV);
-    Kernel highKN = cl_facade::create_kernel(CLS->DaC, "entry_point", CT, DV);
+    Kernel lowKN = cl_facade::create_kernel(CLS->DaC, "DaC", CT, DV);
+    Kernel midKN = cl_facade::create_kernel(CLS->DaC, "DaC", CT, DV);
+    Kernel highKN = cl_facade::create_kernel(CLS->DaC, "DaC", CT, DV);
     CommandQueue CQ = clboost::make_cq(CT, DV);
     std::thread lthread = std::thread([&]() {this->thread_worker(lowKN, CQ, low, number_of_owner, low_range); });
     std::thread mthread = std::thread([&]() {this->thread_worker(midKN, CQ, mid, number_of_owner, mid_range); });
@@ -294,7 +301,7 @@ OPENCL_ACC::three_divide_and_conquer(
     lthread.join();
     mthread.join();
     hthread.join();
-    Kernel finalKN = cl_facade::create_kernel(CLS->integrate_DaC, "entry_point", CT, DV);
+    Kernel finalKN = cl_facade::create_kernel(CLS->integ_DaC, "integ_DaC", CT, DV);
     Buffer low_b = clboost::make_r_buf(CT, low_range * number_of_owner, low);
     Buffer mid_b = clboost::make_r_buf(CT, mid_range * number_of_owner, mid);
     Buffer high_b = clboost::make_r_buf(CT, high_range * number_of_owner, high);
@@ -355,59 +362,13 @@ OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& 
 
 
 
-
-
-
-
-
-
-cl_float2*
-OPENCL_ACC::bit_reverse(float* data_array, const int& data_length_radix_2)
-{
-    int powed_size = pow(2, data_length_radix_2);
-    Kernel KN = cl_facade::create_kernel(CLS->bit_reverse, "entry_point", CT, DV);
-    CommandQueue CQ = clboost::make_cq(CT, DV);
-    Buffer dat_in = clboost::make_r_buf<float>(CT, powed_size, data_array);
-    Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, powed_size);
-    clboost::set_args(KN, dat_in, dat_out, data_length_radix_2);
-    clboost::enq_q(CQ, KN, powed_size);
-    cl_float2* cfloat = new cl_float2[powed_size];
-    clboost::q_read<cl_float2>(CQ, dat_out, true, powed_size, cfloat);
-    return cfloat;
-}
-
-
-void 
-OPENCL_ACC::butterfly_stage_radix_2(cl_float2* data, const int& data_length_radix_2, float* data_out)
-{
-
-    int powed_size = pow(2, data_length_radix_2);
-    Kernel KN = cl_facade::create_kernel(CLS->butterfly_stage, "entry_point", CT, DV);
-    CommandQueue CQ = clboost::make_cq(CT, DV);
-    for (int stage = 0; stage < data_length_radix_2; ++stage) {
-        Buffer dat_in = clboost::make_r_buf<cl_float2>(CT, powed_size, data);
-        Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, powed_size);
-        clboost::set_args(KN, dat_in, dat_out, data_length_radix_2, stage);
-        clboost::enq_q(CQ, KN, powed_size/2);
-        clboost::q_read<cl_float2>(CQ, dat_out, true, powed_size, data);        
-    }
-
-    Kernel final_KN = cl_facade::create_kernel(CLS->to_power, "entry_point", CT, DV);
-    Buffer fin_in = clboost::make_r_buf<cl_float2>(CT, powed_size, data);
-    Buffer fin_out = clboost::make_w_buf<float>(CT, powed_size);
-    clboost::set_args(final_KN, fin_in, fin_out);
-    clboost::enq_q(CQ, final_KN, powed_size);
-    clboost::q_read<float>(CQ, fin_out, true, powed_size, data_out);
-    delete[] data;
-}
-
-
 void
 OPENCL_ACC::to_dbfs(cl_float3* data, const int& window_radix_size, const int& low, const int& mid, const int& high, const int& quot )
 {
     int wos = pow(2, window_radix_size);
     gpgpu_facade<cl_float3, cl_float3>(
         CLS->to_dbfs,
+        "to_dbfs",
         data,
         quot,
         data,
