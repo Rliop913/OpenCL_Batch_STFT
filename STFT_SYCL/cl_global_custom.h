@@ -2,6 +2,7 @@
 #include <string>
 #include <CL/opencl.hpp>
 #include "custom_assert.h"
+#include <vector>
 using namespace cl;
 namespace clboost {
 
@@ -24,11 +25,11 @@ namespace clboost {
 	template <typename... Args>
 	void set_args(Kernel& kn, const Args ... args);
 
-	void enq_q(CommandQueue& q, const Kernel& kernel, Event& this_event, const vector<Event>& wait_ev, const int global_size, const int local_size = NULL);
+	void enq_q(CommandQueue& q, const Kernel& kernel, Event& this_event, const std::vector<Event>& wait_ev, const int global_size, const int local_size = NULL);
 	void enq_q(CommandQueue& q, const Kernel& kernel, const int global_size, const int local_size = NULL);
 
 	template<typename P>
-	void q_read(CommandQueue& q, Buffer& wbuf, const bool check_dirct, const int& size, vector<P>& data);
+	void q_read(CommandQueue& q, Buffer& wbuf, const bool check_dirct, const int& size, std::vector<P>& data);
 	
 	template<typename P>
 	void q_read(CommandQueue& q, Buffer& wbuf, const bool check_dirct, const int& size, P* data);
@@ -71,7 +72,7 @@ clboost::set_args(Kernel& kn, const Args ... args)
 
 template <typename P>
 void
-clboost::q_read(CommandQueue& q, Buffer& wbuf, const bool check_dirct, const int& size, vector<P>& data)
+clboost::q_read(CommandQueue& q, Buffer& wbuf, const bool check_dirct, const int& size, std::vector<P>& data)
 {
 	q.enqueueReadBuffer(wbuf, (check_dirct ? CL_TRUE : CL_FALSE), 0, sizeof(P) * size, data.data());
 }

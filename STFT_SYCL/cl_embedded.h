@@ -56,7 +56,7 @@ std::string bitreverse =
 	"\n"
 	"\n"
 	"\n"
-	"#endif //DO_DEBU\n"
+	"#endif //DO_DEBUG\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -117,7 +117,7 @@ std::string bitreverse_stft =
 	"\n"
 	"\n"
 	"\n"
-	"#endif //DO_DEBU\n"
+	"#endif //DO_DEBUG\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -207,8 +207,6 @@ std::string butterfly =
 #endif
 #ifndef NO_EMBEDDED_CL
 std::string butterfly_stft = 
-	"//DEBUG OR RELEASE\n"
-	"#define DO_DEBUG\n"
 	"\n"
 	"//2 component vector to hold the real and imaginary parts of a complex number:\n"
 	"typedef float2 cfloat;\n"
@@ -293,31 +291,25 @@ std::string butterfly_stft =
 	"}\n"
 	"\n"
 	"\n"
-	"/*\n"
-	" *  Square root of complex number.\n"
-	" */\n"
-	"//Front declaration\n"
-	"//declare here, implement later\n"
-	"\n"
-	"\n"
 	"cfloat twiddle(int high, int low)\n"
 	"{\n"
 	"    cfloat temp;\n"
-	"    temp.x = cos(2.0*M_PI*((float)high/(float)low));\n"
-	"    temp.y = -1.0*sin(2.0*M_PI*((float)high/(float)low));\n"
+	"    float angle = 2.0*((float)high/(float)low);\n"
+	"    temp.x = cospi(angle);\n"
+	"    temp.y = -1.0*sinpi(angle);\n"
 	"    return temp;\n"
 	"}\n"
 	"\n"
 	"long2 indexer(const long ID,const int stage)\n"
 	"{\n"
 	"    long2 temp;\n"
-	"    temp.x = (ID%((long)pow(2.0,stage)))+(long)pow(2.0,stage+1)*(ID/(long)pow(2.0,stage));\n"
-	"    temp.y = temp.x+(long)pow(2.0,stage);\n"
+	"    long powed = pow(2.0, stage);\n"
+	"    temp.x = (ID%(powed))+powed*2*(ID/powed);\n"
+	"    temp.y = temp.x+powed;\n"
 	"    return temp;\n"
 	"}\n"
 	"\n"
 	"\n"
-	"//Kernel entry point\n"
 	"__kernel void butterfly_stft(__global float2* in_frame, __global float2* out_frame, int radix_2, int stage)\n"
 	"{\n"
 	"    long powed_stage = (long)pow(2.0,stage);\n"
@@ -333,26 +325,6 @@ std::string butterfly_stft =
 	"\n"
 	"\n"
 	"\n"
-	"\n"
-	"\n"
-	"#ifndef DO_DEBUG\n"
-	"//Release Codes\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"#endif //DO_RELEASE\n"
-	"\n"
-	"\n"
-	"\n"
-	"#ifdef DO_DEBUG\n"
-	"//Debug Codes\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"#endif //DO_DEBU\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -371,7 +343,7 @@ std::string DaC =
 	"    my_index.y = my_index.x+1;\n"
 	"    out_frame[myid]= in_frame[my_index.x]+in_frame[my_index.y];\n"
 	"    \n"
-	"\n"
+	"}\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -400,7 +372,7 @@ std::string entry_point =
 	"    img_buffer[myid + 1] = (uchar)0;\n"
 	"    img_buffer[myid + 2] = (uchar)0;\n"
 	"    img_buffer[myid + 3] = (uchar)255;\n"
-	"\n"
+	"}\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -449,7 +421,7 @@ std::string integ_DaC =
 	"\n"
 	"\n"
 	"\n"
-	"#endif //DO_DEBU\n"
+	"#endif //DO_DEBUG\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -512,7 +484,7 @@ std::string overlap =
 	"\n"
 	"\n"
 	"\n"
-	"#endif //DO_DEBU\n"
+	"#endif //DO_DEBUG\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -531,7 +503,7 @@ std::string split_high_band =
 	"    long my_index = powed_limit*my_global_index + my_locale_index + mid_high;\n"
 	"    float for_write = my_locale_index>=mid_high?0:in_frame[my_index];\n"
 	"    high_out[myid]=for_write;\n"
-	"\n"
+	"}\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -548,9 +520,9 @@ std::string split_low_band =
 	"    int my_locale_index = myid % padded_size;\n"
 	"    int my_global_index = myid / padded_size;\n"
 	"    long my_index = powed_limit * my_global_index + my_locale_index;\n"
-	"    float for_write = my_locale_index>=low_mid?99:in_frame[my_index];\n"
+	"    float for_write = my_locale_index>=low_mid?0.0:in_frame[my_index];\n"
 	"    low_out[myid]=for_write;\n"
-	"\n"
+	"}\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -569,7 +541,7 @@ std::string split_mid_band =
 	"    long my_index = powed_limit*my_global_index + my_locale_index + low_mid;\n"
 	"    float for_write = my_locale_index>=(mid_high-low_mid)?0:in_frame[my_index];\n"
 	"    mid_out[myid]=for_write;\n"
-	"\n"
+	"}\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -621,7 +593,7 @@ std::string to_dbfs =
 	"\n"
 	"\n"
 	"\n"
-	"#endif //DO_DEBU\n"
+	"#endif //DO_DEBUG\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -654,7 +626,7 @@ std::string to_power =
 	"    long half_size = (long)origin_size / 2;\n"
 	"    long index = ((long)origin_size * ( myid / half_size )) + ( myid % half_size );\n"
 	"    float powered =cmod(in_frame[index]);\n"
-	"    powered = myid%half_size < 1?0:powered;\n"
+	"    powered = myid%half_size < 2?0:powered;\n"
 	"    out_frame[myid]=powered;\n"
 	"    \n"
 	"    \n"
@@ -682,7 +654,7 @@ std::string to_power =
 	"\n"
 	"\n"
 	"\n"
-	"#endif //DO_DEBU\n"
+	"#endif //DO_DEBUG\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL
@@ -692,17 +664,11 @@ std::string to_power =
 #endif
 #ifndef NO_EMBEDDED_CL
 std::string windowing = 
-	"//DEBUG OR RELEASE\n"
-	"#define DO_DEBUG\n"
-	"\n"
-	"\n"
-	"//Front declaration\n"
-	"//declare here, implement later\n"
 	"\n"
 	"\n"
 	"inline float window_func(const int powed, const int index, const int window_size)\n"
 	"{\n"
-	"    return (0.42 - 0.5*cos(2.0*M_PI*(float)index/(float)window_size)+0.08*cos(4.0*M_PI*(float)index/(window_size)));\n"
+	"    return (0.42 - 0.5*cospi(2.0*(float)index/(float)window_size)+0.08*cospi(4.0*(float)index/(float)(window_size)));\n"
 	"}\n"
 	"\n"
 	"__kernel void windowing(__global float2* frame_in, __global float2* frame_out, int window_radix_2_size)\n"
@@ -713,29 +679,6 @@ std::string windowing =
 	"    \n"
 	"}\n"
 	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"#ifndef DO_DEBUG\n"
-	"//Release Codes\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"#endif //DO_RELEASE\n"
-	"\n"
-	"\n"
-	"\n"
-	"#ifdef DO_DEBUG\n"
-	"//Debug Codes\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"\n"
-	"#endif //DO_DEBU\n"
 	;
 #endif
 #ifdef NO_EMBEDDED_CL

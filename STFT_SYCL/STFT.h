@@ -4,10 +4,10 @@
 #include "cl_embedded.h"
 #include <thread>
 #include <vector>
-#define ON_UNIT_TEST
+#include "faust_LHPF.hpp"
 #define DEFAULT_SAMPLERATE 48000
-#define EQ_LOW_MID 200
-#define EQ_MID_HIGH 2000
+#define EQ_LOW_MID 250
+#define EQ_MID_HIGH 5000
 #define EQ_HIGH_TOO_HIGH 16000
 #define to_big_radix_2(var) pow(2,std::ceil(log2(var)));
 typedef unsigned long long ma_uint64;
@@ -28,30 +28,20 @@ public:
 		const ma_uint64& core_size,
 		const Args& ... args);
 
-	template<class data_in_T, class data_out_T, class ... Args>
-	void gpgpu_facade_read_clfile(
-		const std::string& CL_C_code,
-		data_in_T*& in_data_P,
-		const ma_uint64& in_data_length,
-		data_out_T*& out_data_P,
-		const ma_uint64& out_data_length,
-		const ma_uint64& core_size,
-		const Args& ... args);
 
 	cl_embed *CLS;
-
+	Faust_LHPF* lpf;
+	void LPF(float* data, const ma_uint64& origin_length, const int& LFV);
 	[[nodiscard]]
 	cl_float2* overlap_and_extend_for_STFT(float* data_origin, const ma_uint64& origin_length, const ma_uint64& overlaped_length, const int& radix_2_size, const int& overlap_frame, const int& both_side_z_padding_size);
 	
 	void window_STFT(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_size);
-
 	void bit_reverse_STFT(cl_float2* overlap_array,const ma_uint64& frame_length, const int& window_radix_size);
 
 	void butterfly_STFT(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_2_size);
 	[[nodiscard]]//deletes overlap_array here
 	float* power_them(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_size);
 	[[nodiscard]]//deletes powered_STFT here
-	cl_float3* three_bander(float* powered_STFT, const int& window_radix_size, int& low, int& mid, int& high, const int& quot);
 	cl_float3* three_divide_and_conquer(
 		float*& low, const int& low_range,
 		float*& mid, const int& mid_range,
@@ -72,6 +62,7 @@ public:
 	void set_platform_device(const std::string& platform, const std::string& device);
 	//void cl_fft(float* data_array, const int& data_length_radix_2);
 	float* cl_STFT(float* full_frame, const ma_uint64& full_length, const int& window_radix_2, const double& overlap_ratio, const int& both_side_z_padding_size, int& number_of_index);
+	cl_float3* three_bander(float* powered_STFT, const int& window_radix_size, int& low, int& mid, int& high, const int& quot);
 	//void STFT_TESTER();
 };
 

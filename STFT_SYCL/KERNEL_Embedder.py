@@ -71,7 +71,9 @@ def read_and_embed(file, got_str:str):
     main_text:str=""
     title:str = ""
     for i in file.readlines():
-        line:str=i[:-1]
+        line:str=i[:]
+        if line.endswith("\n"):
+            line=line[:-1]
         if line.find("//-ne")!=-1 or line.find("//No_Embed")!=-1 or line.find("printf")!=-1:
         
             pass

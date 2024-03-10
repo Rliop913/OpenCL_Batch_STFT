@@ -55,8 +55,8 @@ clboost::make_prog(const std::string& hardcoded_cl_code, const Context& ct, cons
 	Program pg(ct,hardcoded_cl_code);
 	
 	pg.build(dev);
-	
-	ASSERT_EQ(pg.getBuildInfo<CL_PROGRAM_BUILD_LOG>(dev), "\n");
+	std::string err_message = pg.getBuildInfo<CL_PROGRAM_BUILD_LOG>(dev);
+	ASSERT_EQ(err_message, "\n");
 	return pg;
 }
 #endif  // !NO_EMBEDDED_CL

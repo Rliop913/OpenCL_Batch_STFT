@@ -5,7 +5,7 @@ __kernel void split_low_band(__global float* in_frame, __global float* low_out, 
     int my_locale_index = myid % padded_size;
     int my_global_index = myid / padded_size;
     long my_index = powed_limit * my_global_index + my_locale_index;
-    float for_write = my_locale_index>=low_mid?99:in_frame[my_index];
-    printf("for write %f\n", for_write);
+    float for_write = my_locale_index>=low_mid?0.0:in_frame[my_index];
+    printf("for write %f\n", for_write);//-ne
     low_out[myid]=for_write;
 }

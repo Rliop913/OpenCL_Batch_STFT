@@ -21,7 +21,7 @@ __kernel void to_power(__global float2* in_frame, __global float* out_frame, int
     long half_size = (long)origin_size / 2;
     long index = ((long)origin_size * ( myid / half_size )) + ( myid % half_size );
     float powered =cmod(in_frame[index]);
-    powered = myid%half_size < 1?0:powered;
+    powered = myid%half_size < 2?0:powered;
     out_frame[myid]=powered;
     
     

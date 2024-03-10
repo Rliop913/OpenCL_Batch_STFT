@@ -1,5 +1,3 @@
-//DEBUG OR RELEASE
-#define DO_DEBUG
 
 //2 component vector to hold the real and imaginary parts of a complex number:
 typedef float2 cfloat;
@@ -84,31 +82,25 @@ inline cfloat cdiv(cfloat a, cfloat b){
 }
 
 
-/*
- *  Square root of complex number.
- */
-//Front declaration
-//declare here, implement later
-
-
 cfloat twiddle(int high, int low)
 {
     cfloat temp;
-    temp.x = cos(2.0*M_PI*((float)high/(float)low));
-    temp.y = -1.0*sin(2.0*M_PI*((float)high/(float)low));
+    float angle = 2.0*((float)high/(float)low);
+    temp.x = cospi(angle);
+    temp.y = -1.0*sinpi(angle);
     return temp;
 }
 
 long2 indexer(const long ID,const int stage)
 {
     long2 temp;
-    temp.x = (ID%((long)pow(2.0,stage)))+(long)pow(2.0,stage+1)*(ID/(long)pow(2.0,stage));
-    temp.y = temp.x+(long)pow(2.0,stage);
+    long powed = pow(2.0, stage);
+    temp.x = (ID%(powed))+powed*2*(ID/powed);
+    temp.y = temp.x+powed;
     return temp;
 }
 
 
-//Kernel entry point
 __kernel void butterfly_stft(__global float2* in_frame, __global float2* out_frame, int radix_2, int stage)
 {
     long powed_stage = (long)pow(2.0,stage);
@@ -124,23 +116,3 @@ __kernel void butterfly_stft(__global float2* in_frame, __global float2* out_fra
 
 
 
-
-
-#ifndef DO_DEBUG
-//Release Codes
-
-
-
-
-#endif //DO_RELEASE
-
-
-
-#ifdef DO_DEBUG
-//Debug Codes
-
-
-
-
-
-#endif //DO_DEBUG

@@ -53,15 +53,22 @@ OPENCL_ACC::set_platform_device(const std::string& platform, const std::string& 
 OPENCL_ACC::OPENCL_ACC(const std::string& platform, const std::string& device)
 {
     CLS = new cl_embed();
+    this->lpf = new Faust_LHPF();
+    this->lpf->init(48000);
     set_platform_device(platform, device);
 }
 OPENCL_ACC::OPENCL_ACC() {
     CLS = new cl_embed();
-
+    this->lpf = new Faust_LHPF();
+    this->lpf->init(48000);
 }
 OPENCL_ACC::~OPENCL_ACC() {
     delete CLS;
+    delete this->lpf;
 }
+
+
+
 
 
 
@@ -234,36 +241,8 @@ OPENCL_ACC::three_bander(float* powered_STFT, const int& window_radix_size, int&
         quot
     );
 
-    /*gpgpu_facade<float , cl_float3>(
-        CLS->to_three_band,
-        powered_STFT,
-        only_usables/2,
-        three_band_out,
-        quot,
-        quot,
-        powed_size,
-        low_mid,
-        mid_high
-    );*/
     delete[] powered_STFT;
     return three_band_out;
-
-
-    //Kernel tbandKN = cl_facade::create_kernel(CLS->to_three_band, "entry_point", CT, DV);
-    //
-    //Buffer tband_in = clboost::make_r_buf<float>(CT, only_usables, powered_STFT);
-    //Buffer tband_out = clboost::make_w_buf<cl_float3>(CT, quot);
-    //
-    //double freq_jump_size = ((double)DEFAULT_SAMPLERATE/2.0) / (double)(powed_size / 2);
-    //
-    //int low_mid = (int)round(((double)EQ_LOW_MID) / freq_jump_size);
-    //int mid_high = (int)round(((double)EQ_MID_HIGH) / freq_jump_size);
-    //clboost::set_args(tbandKN, tband_in, tband_out, powed_size/2, low_mid, mid_high);
-    //clboost::enq_q(CQ, tbandKN, quot);
-    //cl_float3 *t_band_out = new cl_float3[quot];
-    //clboost::q_read<cl_float3>(CQ, tband_out, true, quot, t_band_out);
-    //delete[] powered_STFT;
-    //return t_band_out;
 }
 void 
 OPENCL_ACC::thread_worker(Kernel& KN, CommandQueue& CQ, float*& data, const int& number_of_owner, const int& range)
@@ -318,7 +297,13 @@ OPENCL_ACC::three_divide_and_conquer(
 
 
 
-
+void
+OPENCL_ACC::LPF(float* data, const ma_uint64& origin_length, const int& LFV)
+{
+    //lpf->low_freq_value = LFV;
+    float** data_p=&data;
+    lpf->compute(origin_length, data_p, data_p);
+}
 
 
 
@@ -328,9 +313,12 @@ OPENCL_ACC::three_divide_and_conquer(
 float*
 OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& window_radix_2, const double& overlap_ratio, const int& front_side_z_padding_size, int& number_of_index)
 {
-
+    lpf->low_freq_value = 300;
+    lpf->high_freq_value = 5;
     int powed_radix = pow(2, (int)window_radix_2);
     int fft_quotient = full_length / (int)((double)powed_radix * (1.0 - overlap_ratio));
+    //LPF(full_frame, full_length, 1000);
+    fft_quotient == 0 ? fft_quotient = 1 : true;
     ma_uint64 overlaped_full_frame = fft_quotient * powed_radix;
     cl_float2* overlap_out = overlap_and_extend_for_STFT(full_frame, full_length, overlaped_full_frame, window_radix_2, (int)((double)powed_radix * (1.0 - overlap_ratio)), front_side_z_padding_size);
 
@@ -343,11 +331,6 @@ OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& 
     butterfly_STFT(overlap_out, overlaped_full_frame, window_radix_2);
     number_of_index = fft_quotient;
     return power_them(overlap_out, overlaped_full_frame, window_radix_2);
-
-    /*cl_float3* three_band_out = three_bander(powered, overlaped_full_frame, window_radix_2, fft_quotient);
-
-    number_of_index = fft_quotient;
-    return three_band_out;*/
 }
 
 //
@@ -382,51 +365,136 @@ OPENCL_ACC::to_dbfs(cl_float3* data, const int& window_radix_size, const int& lo
     
 }
 
-//
-//
-////
-//#include "miniaudio.h"
-////
-//#include <iostream>
-//int main() {
-//        OPENCL_ACC oa = OPENCL_ACC();
-//    std::vector<std::pair<std::string, std::string>> list = oa.get_platform_device_list();
-//    /*for(int i = 0; i < list.size(); ++i) {
-//        std::cout << list[i].first << "--" << list[i].second << std::endl;
-//    }*/
-//    oa.set_platform_device(
-//        "NVIDIA CUDA", "NVIDIA GeForce GTX 1660 Ti with Max-Q Design");//임시로 하드코딩
-//
-//
-//    //oa.STFT_TESTER();
-//    int radix = 15;
-//
-//    ma_decoder_config deconf = ma_decoder_config_init(ma_format_f32, 1, 48000);
-//    ma_decoder dec;
-//    ma_decoder_init_file("E:/Word Of Old.wav", &deconf, &dec);
-//    ma_uint64 length;
-//    ma_decoder_get_length_in_pcm_frames(&dec, &length);
-//    length /= 5;
-//    float* full_frame = new float[length];
-//    ma_uint64 check;
-//    ma_decoder_read_pcm_frames(&dec, full_frame, length, &check);
-//    ASSERT_EQ(check, length);
-//    int quot = 0;
-//    int low = 0;
-//    int mid = 0;
-//    int high = 0;
-//    float* stft_output = oa.cl_STFT(full_frame, length, radix, 0.9, 16384, quot);
-//    cl_float3* tband = oa.three_bander(stft_output, radix, low, mid, high, quot);
-//    oa.to_dbfs(tband, radix, low, mid, high, quot);
-//    for (int i = 0; i < quot; ++i) {
-//        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << std::endl;
-//    }
-//    getchar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <complex>
+#include <vector>
+
+using namespace std;
+
+// DFT 계산
+std::vector<complex<double>> DFT(std::vector<complex<double>> x) {
+    int n = x.size();
+    std::vector<complex<double>> X(n);
+
+    for (int k = 0; k < n; k++) {
+        for (int j = 0; j < n; j++) {
+            X[k] += x[j] * exp(-2.0 * CL_M_PI * j * k / n);
+        }
+    }
+
+    return X;
+}
+
+
+
+
 //
 //
 //
-//    return 0;
-//}
+#include "miniaudio.h"
+//
+#include <iostream>
+int main() {
+        OPENCL_ACC oa = OPENCL_ACC();
+    std::vector<std::pair<std::string, std::string>> list = oa.get_platform_device_list();
+    /*for(int i = 0; i < list.size(); ++i) {
+        std::cout << list[i].first << "--" << list[i].second << std::endl;
+    }*/
+    oa.set_platform_device(
+        "NVIDIA CUDA", "NVIDIA GeForce GTX 1660 Ti with Max-Q Design");//임시로 하드코딩
+
+
+    //oa.STFT_TESTER();
+    int radix = 10;
+
+    //ma_decoder_config deconf = ma_decoder_config_init(ma_format_f32, 1, 48000);
+    //ma_decoder dec;
+    //ma_decoder_init_file("E:/Word Of Old.wav", &deconf, &dec);
+    //ma_uint64 length;
+    //ma_decoder_get_length_in_pcm_frames(&dec, &length);
+    ma_waveform_config config = ma_waveform_config_init(
+        ma_format_f32,
+        1,
+        48000,
+        ma_waveform_type_sine,
+        1.0,
+        23000.0);
+
+    ma_waveform waveform;
+    ma_result result = ma_waveform_init(&config, &waveform);
+    if (result != MA_SUCCESS) {
+        // Error.
+    }
+
+    int leng = 48000;
+    float *data = new float[leng];
+    ma_waveform_read_pcm_frames(&waveform, data, leng, NULL);
+    //length /= 5;
+    //float* full_frame = new float[length];
+    ma_uint64 check;
+    //ma_decoder_read_pcm_frames(&dec, full_frame, length, &check);
+    //ASSERT_EQ(check, length);
+    int quot = 0;
+    int low = 0;
+    int mid = 0;
+    int high = 0;
+    int pow_half = pow(2, radix - 1);
+    
+    float* stft_output = oa.cl_STFT(data, leng, radix, 0.0, 0, quot);
+    
+    //cl_float3* tband = oa.three_bander(stft_output, radix, low, mid, high, quot);
+    //oa.to_dbfs(tband, radix, low, mid, high, quot);
+    /*for (int j = 0; j < leng; ++j) {
+        if (j % pow_half == 0) {
+            std::cout << std::endl;
+        }
+        std::cout << stft_output[j] << ",";
+
+    }*/
+    for (int i = 0; i < pow(2,radix); ++i) {
+        std::cout << stft_output[i] << ",";
+    }
+    /*for (int i = 0; i < quot; ++i) {
+        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << std::endl;
+    }*/
+    /*std::cout << std::endl;
+    std::vector<complex<double>> temp_vec;
+    for (int i = 0; i < leng; ++i) {
+        temp_vec.push_back(data[i]);
+    }
+    int i = 0;*/
+    /*std::vector<complex<double>> dft_out = DFT(temp_vec);
+    for (complex<double> dd : dft_out) {
+        std::cout << stft_output[i] << "," << sqrt(pow(2.0, dd.real()) + pow(2.0, dd.imag())) << std::endl;
+        ++i;
+        if (i >= leng) {
+            break;
+        }
+
+    }*/
+    /*for (int i = 0; i < quot; ++i) {
+        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << std::endl;
+    }*/
+    //getchar();
+
+
+
+    return 0;
+}
 
 
 
