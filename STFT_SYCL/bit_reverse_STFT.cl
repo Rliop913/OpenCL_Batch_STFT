@@ -15,7 +15,7 @@ int reverseBits(int num, int radix_2_data) {
     }
     return reversed;
 }
-__kernel void entry_point(__global float2* frame, __global float2* out_frame, int radix_2)
+__kernel void bitreverse_stft(__global float2* frame, __global float2* out_frame, int radix_2)
 {
     int powed = (int)pow(2.0,radix_2);
     long myid = get_global_id(0);

@@ -7,7 +7,7 @@
 
 
 //Kernel entry point
-__kernel void entry_point(__global float* low_in, __global float* mid_in, __global float* high_in, __global float3* integ_out)
+__kernel void integ_DaC(__global float* low_in, __global float* mid_in, __global float* high_in, __global float3* integ_out)
 {
     long myid = get_global_id(0);
     integ_out[myid].x=low_in[myid];

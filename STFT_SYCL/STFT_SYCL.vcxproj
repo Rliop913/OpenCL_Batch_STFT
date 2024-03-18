@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cl_embedded.h" />
     <ClInclude Include="cl_FACADE.h" />
     <ClInclude Include="cl_global_custom.h" />
     <ClInclude Include="cl_inside.h" />
     <ClInclude Include="custom_assert.h" />
+    <ClInclude Include="faust_LHPF.hpp" />
     <ClInclude Include="miniaudio.h" />
     <ClInclude Include="STFT.h" />
   </ItemGroup>

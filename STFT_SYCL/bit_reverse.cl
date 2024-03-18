@@ -18,7 +18,7 @@ int reverseBits(int num, int radix_2_data) {
 
 
 //Kernel entry point
-__kernel void entry_point(__global float* frame, __global float2* out_frame, int radix_2)
+__kernel void bitreverse(__global float* frame, __global float2* out_frame, int radix_2)
 {
     long myid = get_global_id(0);
     out_frame[myid].x = frame[reverseBits(myid,radix_2)];

@@ -1,4 +1,4 @@
-__kernel void entry_point(__global float* in_frame, __global float* mid_out, int radix_2_half_size, int low_mid, int mid_high, int padded_size)
+__kernel void split_mid_band(__global float* in_frame, __global float* mid_out, int radix_2_half_size, int low_mid, int mid_high, int padded_size)
 {
     long myid = get_global_id(0);
     long powed_limit = (int)pow(2.0,radix_2_half_size);

@@ -52,16 +52,23 @@ OPENCL_ACC::set_platform_device(const std::string& platform, const std::string& 
 
 OPENCL_ACC::OPENCL_ACC(const std::string& platform, const std::string& device)
 {
-    CLS = new CL_INSIDE();
+    CLS = new cl_embed();
+    this->lpf = new Faust_LHPF();
+    this->lpf->init(48000);
     set_platform_device(platform, device);
 }
 OPENCL_ACC::OPENCL_ACC() {
-    CLS = new CL_INSIDE();
-
+    CLS = new cl_embed();
+    this->lpf = new Faust_LHPF();
+    this->lpf->init(48000);
 }
 OPENCL_ACC::~OPENCL_ACC() {
     delete CLS;
+    delete this->lpf;
 }
+
+
+
 
 
 
@@ -77,6 +84,7 @@ OPENCL_ACC::overlap_and_extend_for_STFT(float* data_origin, const ma_uint64& ori
     cl_float2* overlaped = nullptr;
     gpgpu_facade<float, cl_float2>(
         CLS->overlap,
+        "overlap",
         data_origin,
         origin_length,
         overlaped,
@@ -88,30 +96,7 @@ OPENCL_ACC::overlap_and_extend_for_STFT(float* data_origin, const ma_uint64& ori
         both_side_z_padding_size
     );//overlaped is alloced with new
 
-
-
     return overlaped;
-
-
-
-
-
-
-
-
-    //Kernel KN = cl_facade::create_kernel(CLS->overlap, "entry_point", CT, DV);
-    //CommandQueue CQ = clboost::make_cq(CT, DV);
-
-    //Buffer dat_in = clboost::make_r_buf<float>(CT, origin_length, data_origin);
-    //Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, overlaped_length);
-    //cl_int2 tempint2;
-    //tempint2.x = origin_length / powed_size;
-    //tempint2.y = origin_length % powed_size;
-    //clboost::set_args(KN, dat_in, dat_out, powed_size, overlap_frame, tempint2);
-    //clboost::enq_q(CQ, KN, overlaped_length);
-    //cl_float2* overlaped = new cl_float2[overlaped_length];
-    //clboost::q_read<cl_float2>(CQ, dat_out, true, overlaped_length, overlaped);
-    //return overlaped;
 
 
 }
@@ -119,7 +104,8 @@ void
 OPENCL_ACC::window_STFT(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_size)
 {
     gpgpu_facade<cl_float2,cl_float2>(
-        CLS->window_function,
+        CLS->windowing,
+        "windowing",
         overlap_array,
         frame_length,
         overlap_array,
@@ -127,30 +113,14 @@ OPENCL_ACC::window_STFT(cl_float2* overlap_array, const ma_uint64& frame_length,
         frame_length,
         window_radix_size
     );
-
-
-
-
-
-
-
-    //Kernel KN = cl_facade::create_kernel(CLS->hamming, "entry_point", CT, DV);
-    //CommandQueue CQ = clboost::make_cq(CT, DV);
-
-    //Buffer dat_in = clboost::make_r_buf<cl_float2>(CT, frame_length, overlap_array);
-    //Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, frame_length);
-    //clboost::set_args(KN, dat_in, dat_out, window_radix_size);
-    //clboost::enq_q(CQ, KN, frame_length);
-    //clboost::q_read<cl_float2>(CQ, dat_out, true, frame_length, overlap_array);
 }
 
 void 
 OPENCL_ACC::bit_reverse_STFT(cl_float2* data_array, const ma_uint64& frame_length, const int& window_radix_size)
 {
-
-
     gpgpu_facade<cl_float2, cl_float2>(
-        CLS->bit_reverse_STFT,
+        CLS->bitreverse_stft,
+        "bitreverse_stft",
         data_array,
         frame_length,
         data_array,
@@ -158,27 +128,13 @@ OPENCL_ACC::bit_reverse_STFT(cl_float2* data_array, const ma_uint64& frame_lengt
         frame_length,
         window_radix_size
     );
-
-
-
-
-
-    //Kernel KN = cl_facade::create_kernel(CLS->bit_reverse_STFT, "entry_point", CT, DV);
-    //CommandQueue CQ = clboost::make_cq(CT, DV);
-
-    //Buffer dat_in = clboost::make_r_buf<cl_float2>(CT,frame_length, data_array);
-    //Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, frame_length);
-    //clboost::set_args(KN, dat_in, dat_out, window_radix_size);
-    //clboost::enq_q(CQ, KN, frame_length);
-    //clboost::q_read<cl_float2>(CQ, dat_out, true, frame_length, data_array);
-    //
 }
 
 void
 OPENCL_ACC::butterfly_STFT(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_2_size)
 {
     int powed_size = pow(2, window_radix_2_size);
-    Kernel KN = cl_facade::create_kernel(CLS->butterfly_STFT, "entry_point", CT, DV);
+    Kernel KN = cl_facade::create_kernel(CLS->butterfly_stft, "butterfly_stft", CT, DV);
     CommandQueue CQ = clboost::make_cq(CT, DV);
 
     for (int stage = 0; stage < window_radix_2_size; ++stage) {
@@ -189,10 +145,6 @@ OPENCL_ACC::butterfly_STFT(cl_float2* overlap_array, const ma_uint64& frame_leng
         clboost::enq_q(CQ, KN, frame_length / 2);
         clboost::q_read<cl_float2>(CQ, dat_out, false, frame_length, overlap_array);
     }
-
-
-
-
 }
 float*
 OPENCL_ACC::power_them(cl_float2* overlap_array, const ma_uint64& frame_length, const int& window_radix_size)
@@ -202,6 +154,7 @@ OPENCL_ACC::power_them(cl_float2* overlap_array, const ma_uint64& frame_length, 
     float* powered_data = nullptr;
     gpgpu_facade<cl_float2, float>(
         CLS->to_power,
+        "to_power",
         overlap_array,
         frame_length,
         powered_data,
@@ -210,19 +163,14 @@ OPENCL_ACC::power_them(cl_float2* overlap_array, const ma_uint64& frame_length, 
         powed_size
     );
     delete[] overlap_array;
-
-    /*for (ma_uint64 i = 0; i < 2048; ++i) {
-        std::cout << powered_data[i] << std::endl;
-    }*/
-
     return powered_data;
 
 }
 cl_float3*
-OPENCL_ACC::three_bander(float* powered_STFT, const ma_uint64& frame_length, const int& window_radix_size, const int& quot)
+OPENCL_ACC::three_bander(float* powered_STFT, const int& window_radix_size, int& low, int& mid, int& high, const int& quot)
 {
     int powed_half = pow(2, window_radix_size-1);
-    ma_uint64 only_usables = frame_length / 2;
+    ma_uint64 only_usables = quot * powed_half;
 
     cl_float3* three_band_out = nullptr;
 
@@ -231,22 +179,23 @@ OPENCL_ACC::three_bander(float* powered_STFT, const ma_uint64& frame_length, con
 
     int low_mid = (int)(((double)EQ_LOW_MID) / freq_jump_size)+1;
     int mid_high = (int)(((double)EQ_MID_HIGH) / freq_jump_size)+1;
+    int high_toohigh = (int)(((double)EQ_HIGH_TOO_HIGH) / freq_jump_size) + 1;
+    //11, 107-11, 512-107
+    low = low_mid;
+    int low_padded_size = to_big_radix_2(low);
 
-    int low_range = low_mid;
-    int low_padded_size = to_big_radix_2(low_range);
+    mid = mid_high - low_mid;
+    int mid_padded_size = to_big_radix_2(mid);
 
-    int mid_range = mid_high - low_mid;
-    int mid_padded_size = to_big_radix_2(mid_range);
-
-    int high_range = powed_half - mid_high;
-    int high_padded_size = to_big_radix_2(high_range);
+    high = high_toohigh - mid_high;
+    int high_padded_size = to_big_radix_2(high);
 
     float* lows = nullptr;
     float* mids = nullptr;
     float* highs = nullptr;
-
     gpgpu_facade<float, float>(
         CLS->split_low_band,
+        "split_low_band",
         powered_STFT,
         only_usables,
         lows,
@@ -258,6 +207,7 @@ OPENCL_ACC::three_bander(float* powered_STFT, const ma_uint64& frame_length, con
     );
     gpgpu_facade<float, float>(
         CLS->split_mid_band,
+        "split_mid_band",
         powered_STFT,
         only_usables,
         mids,
@@ -270,6 +220,7 @@ OPENCL_ACC::three_bander(float* powered_STFT, const ma_uint64& frame_length, con
     );
     gpgpu_facade<float, float>(
         CLS->split_high_band,
+        "split_high_band",
         powered_STFT,
         only_usables,
         highs,
@@ -290,36 +241,8 @@ OPENCL_ACC::three_bander(float* powered_STFT, const ma_uint64& frame_length, con
         quot
     );
 
-    /*gpgpu_facade<float , cl_float3>(
-        CLS->to_three_band,
-        powered_STFT,
-        only_usables/2,
-        three_band_out,
-        quot,
-        quot,
-        powed_size,
-        low_mid,
-        mid_high
-    );*/
     delete[] powered_STFT;
     return three_band_out;
-
-
-    //Kernel tbandKN = cl_facade::create_kernel(CLS->to_three_band, "entry_point", CT, DV);
-    //
-    //Buffer tband_in = clboost::make_r_buf<float>(CT, only_usables, powered_STFT);
-    //Buffer tband_out = clboost::make_w_buf<cl_float3>(CT, quot);
-    //
-    //double freq_jump_size = ((double)DEFAULT_SAMPLERATE/2.0) / (double)(powed_size / 2);
-    //
-    //int low_mid = (int)round(((double)EQ_LOW_MID) / freq_jump_size);
-    //int mid_high = (int)round(((double)EQ_MID_HIGH) / freq_jump_size);
-    //clboost::set_args(tbandKN, tband_in, tband_out, powed_size/2, low_mid, mid_high);
-    //clboost::enq_q(CQ, tbandKN, quot);
-    //cl_float3 *t_band_out = new cl_float3[quot];
-    //clboost::q_read<cl_float3>(CQ, tband_out, true, quot, t_band_out);
-    //delete[] powered_STFT;
-    //return t_band_out;
 }
 void 
 OPENCL_ACC::thread_worker(Kernel& KN, CommandQueue& CQ, float*& data, const int& number_of_owner, const int& range)
@@ -346,9 +269,9 @@ OPENCL_ACC::three_divide_and_conquer(
     float*& high, const int& high_range,
     const int& number_of_owner)
 {
-    Kernel lowKN = cl_facade::create_kernel(CLS->DaC, "entry_point", CT, DV);
-    Kernel midKN = cl_facade::create_kernel(CLS->DaC, "entry_point", CT, DV);
-    Kernel highKN = cl_facade::create_kernel(CLS->DaC, "entry_point", CT, DV);
+    Kernel lowKN = cl_facade::create_kernel(CLS->DaC, "DaC", CT, DV);
+    Kernel midKN = cl_facade::create_kernel(CLS->DaC, "DaC", CT, DV);
+    Kernel highKN = cl_facade::create_kernel(CLS->DaC, "DaC", CT, DV);
     CommandQueue CQ = clboost::make_cq(CT, DV);
     std::thread lthread = std::thread([&]() {this->thread_worker(lowKN, CQ, low, number_of_owner, low_range); });
     std::thread mthread = std::thread([&]() {this->thread_worker(midKN, CQ, mid, number_of_owner, mid_range); });
@@ -357,7 +280,7 @@ OPENCL_ACC::three_divide_and_conquer(
     lthread.join();
     mthread.join();
     hthread.join();
-    Kernel finalKN = cl_facade::create_kernel(CLS->integrate_DaC, "entry_point", CT, DV);
+    Kernel finalKN = cl_facade::create_kernel(CLS->integ_DaC, "integ_DaC", CT, DV);
     Buffer low_b = clboost::make_r_buf(CT, low_range * number_of_owner, low);
     Buffer mid_b = clboost::make_r_buf(CT, mid_range * number_of_owner, mid);
     Buffer high_b = clboost::make_r_buf(CT, high_range * number_of_owner, high);
@@ -374,21 +297,30 @@ OPENCL_ACC::three_divide_and_conquer(
 
 
 
-
-
-
-
-
-
-
-cl_float3*
-OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& window_radix_2, const double& overlap_ratio, const int& both_side_z_padding_size, int& number_of_index)
+void
+OPENCL_ACC::LPF(float* data, const ma_uint64& origin_length, const int& LFV)
 {
+    //lpf->low_freq_value = LFV;
+    float** data_p=&data;
+    lpf->compute(origin_length, data_p, data_p);
+}
 
-    int powed_radix = pow(2, 10);
+
+
+
+
+
+float*
+OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& window_radix_2, const double& overlap_ratio, const int& front_side_z_padding_size, int& number_of_index)
+{
+    lpf->low_freq_value = 300;
+    lpf->high_freq_value = 5;
+    int powed_radix = pow(2, (int)window_radix_2);
     int fft_quotient = full_length / (int)((double)powed_radix * (1.0 - overlap_ratio));
+    //LPF(full_frame, full_length, 1000);
+    fft_quotient == 0 ? fft_quotient = 1 : true;
     ma_uint64 overlaped_full_frame = fft_quotient * powed_radix;
-    cl_float2* overlap_out = overlap_and_extend_for_STFT(full_frame, full_length, overlaped_full_frame, window_radix_2, (int)((double)powed_radix * (1.0 - overlap_ratio)), both_side_z_padding_size);
+    cl_float2* overlap_out = overlap_and_extend_for_STFT(full_frame, full_length, overlaped_full_frame, window_radix_2, (int)((double)powed_radix * (1.0 - overlap_ratio)), front_side_z_padding_size);
 
     window_STFT(overlap_out, overlaped_full_frame, window_radix_2);
 
@@ -397,23 +329,40 @@ OPENCL_ACC::cl_STFT(float* full_frame, const ma_uint64& full_length, const int& 
     
 
     butterfly_STFT(overlap_out, overlaped_full_frame, window_radix_2);
-
-    float* powered = power_them(overlap_out, overlaped_full_frame, window_radix_2);
-
-    cl_float3* three_band_out = three_bander(powered, overlaped_full_frame, window_radix_2, fft_quotient);
-
     number_of_index = fft_quotient;
-    return three_band_out;
+    return power_them(overlap_out, overlaped_full_frame, window_radix_2);
 }
+
+//
+//void
+//OPENCL_ACC::cl_fft(float* data_array, const int& data_length_radix_2)
+//{
+//    cl_float2 *complexed = bit_reverse(data_array, data_length_radix_2);
+//    butterfly_stage_radix_2(complexed, data_length_radix_2,data_array);
+//
+//
+//}
+
 
 
 void
-OPENCL_ACC::cl_fft(float* data_array, const int& data_length_radix_2)
+OPENCL_ACC::to_dbfs(cl_float3* data, const int& window_radix_size, const int& low, const int& mid, const int& high, const int& quot )
 {
-    cl_float2 *complexed = bit_reverse(data_array, data_length_radix_2);
-    butterfly_stage_radix_2(complexed, data_length_radix_2,data_array);
-
-
+    int wos = pow(2, window_radix_size);
+    gpgpu_facade<cl_float3, cl_float3>(
+        CLS->to_dbfs,
+        "to_dbfs",
+        data,
+        quot,
+        data,
+        quot,
+        quot,
+        wos,
+        low,
+        mid,
+        high
+    );
+    
 }
 
 
@@ -424,45 +373,37 @@ OPENCL_ACC::cl_fft(float* data_array, const int& data_length_radix_2)
 
 
 
-cl_float2*
-OPENCL_ACC::bit_reverse(float* data_array, const int& data_length_radix_2)
-{
-    int powed_size = pow(2, data_length_radix_2);
-    Kernel KN = cl_facade::create_kernel(CLS->bit_reverse, "entry_point", CT, DV);
-    CommandQueue CQ = clboost::make_cq(CT, DV);
-    Buffer dat_in = clboost::make_r_buf<float>(CT, powed_size, data_array);
-    Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, powed_size);
-    clboost::set_args(KN, dat_in, dat_out, data_length_radix_2);
-    clboost::enq_q(CQ, KN, powed_size);
-    cl_float2* cfloat = new cl_float2[powed_size];
-    clboost::q_read<cl_float2>(CQ, dat_out, true, powed_size, cfloat);
-    return cfloat;
-}
 
 
-void 
-OPENCL_ACC::butterfly_stage_radix_2(cl_float2* data, const int& data_length_radix_2, float* data_out)
-{
 
-    int powed_size = pow(2, data_length_radix_2);
-    Kernel KN = cl_facade::create_kernel(CLS->butterfly_stage, "entry_point", CT, DV);
-    CommandQueue CQ = clboost::make_cq(CT, DV);
-    for (int stage = 0; stage < data_length_radix_2; ++stage) {
-        Buffer dat_in = clboost::make_r_buf<cl_float2>(CT, powed_size, data);
-        Buffer dat_out = clboost::make_w_buf<cl_float2>(CT, powed_size);
-        clboost::set_args(KN, dat_in, dat_out, data_length_radix_2, stage);
-        clboost::enq_q(CQ, KN, powed_size/2);
-        clboost::q_read<cl_float2>(CQ, dat_out, true, powed_size, data);        
+
+
+
+
+#include <complex>
+#include <vector>
+
+using namespace std;
+
+// DFT °è»ê
+std::vector<complex<double>> DFT(std::vector<complex<double>> x) {
+    int n = x.size();
+    std::vector<complex<double>> X(n);
+
+    for (int k = 0; k < n; k++) {
+        for (int j = 0; j < n; j++) {
+            X[k] += x[j] * exp(-2.0 * CL_M_PI * j * k / n);
+        }
     }
 
-    Kernel final_KN = cl_facade::create_kernel(CLS->to_power, "entry_point", CT, DV);
-    Buffer fin_in = clboost::make_r_buf<cl_float2>(CT, powed_size, data);
-    Buffer fin_out = clboost::make_w_buf<float>(CT, powed_size);
-    clboost::set_args(final_KN, fin_in, fin_out);
-    clboost::enq_q(CQ, final_KN, powed_size);
-    clboost::q_read<float>(CQ, fin_out, true, powed_size, data_out);
-    delete[] data;
+    return X;
 }
+
+
+
+
+//
+//
 //
 #include "miniaudio.h"
 //
@@ -478,25 +419,77 @@ int main() {
 
 
     //oa.STFT_TESTER();
+    int radix = 10;
 
+    //ma_decoder_config deconf = ma_decoder_config_init(ma_format_f32, 1, 48000);
+    //ma_decoder dec;
+    //ma_decoder_init_file("E:/Word Of Old.wav", &deconf, &dec);
+    //ma_uint64 length;
+    //ma_decoder_get_length_in_pcm_frames(&dec, &length);
+    ma_waveform_config config = ma_waveform_config_init(
+        ma_format_f32,
+        1,
+        48000,
+        ma_waveform_type_sine,
+        1.0,
+        23000.0);
 
-    ma_decoder_config deconf = ma_decoder_config_init(ma_format_f32, 1, 48000);
-    ma_decoder dec;
-    ma_decoder_init_file("E:/HOP.wav", &deconf, &dec);
-    ma_uint64 length;
-    ma_decoder_get_length_in_pcm_frames(&dec, &length);
-    length /= 10;
-    float* full_frame = new float[length];
-    ma_uint64 check;
-    ma_decoder_read_pcm_frames(&dec, full_frame, length, &check);
-    ASSERT_EQ(check, length);
-    int quot = 0;
-    cl_float3* tband = oa.cl_STFT(full_frame, length, 10, 0.8, 512, quot);
-
-    for (int i = 0; i < quot; ++i) {
-        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << "," << std::endl;
+    ma_waveform waveform;
+    ma_result result = ma_waveform_init(&config, &waveform);
+    if (result != MA_SUCCESS) {
+        // Error.
     }
-    getchar();
+
+    int leng = 48000;
+    float *data = new float[leng];
+    ma_waveform_read_pcm_frames(&waveform, data, leng, NULL);
+    //length /= 5;
+    //float* full_frame = new float[length];
+    ma_uint64 check;
+    //ma_decoder_read_pcm_frames(&dec, full_frame, length, &check);
+    //ASSERT_EQ(check, length);
+    int quot = 0;
+    int low = 0;
+    int mid = 0;
+    int high = 0;
+    int pow_half = pow(2, radix - 1);
+    
+    float* stft_output = oa.cl_STFT(data, leng, radix, 0.0, 0, quot);
+    
+    //cl_float3* tband = oa.three_bander(stft_output, radix, low, mid, high, quot);
+    //oa.to_dbfs(tband, radix, low, mid, high, quot);
+    /*for (int j = 0; j < leng; ++j) {
+        if (j % pow_half == 0) {
+            std::cout << std::endl;
+        }
+        std::cout << stft_output[j] << ",";
+
+    }*/
+    for (int i = 0; i < pow(2,radix); ++i) {
+        std::cout << stft_output[i] << ",";
+    }
+    /*for (int i = 0; i < quot; ++i) {
+        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << std::endl;
+    }*/
+    /*std::cout << std::endl;
+    std::vector<complex<double>> temp_vec;
+    for (int i = 0; i < leng; ++i) {
+        temp_vec.push_back(data[i]);
+    }
+    int i = 0;*/
+    /*std::vector<complex<double>> dft_out = DFT(temp_vec);
+    for (complex<double> dd : dft_out) {
+        std::cout << stft_output[i] << "," << sqrt(pow(2.0, dd.real()) + pow(2.0, dd.imag())) << std::endl;
+        ++i;
+        if (i >= leng) {
+            break;
+        }
+
+    }*/
+    /*for (int i = 0; i < quot; ++i) {
+        std::cout << tband[i].x << "," << tband[i].y << "," << tband[i].z << std::endl;
+    }*/
+    //getchar();
 
 
 
@@ -506,18 +499,32 @@ int main() {
 
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //#define TD_OVER 10000
 //
