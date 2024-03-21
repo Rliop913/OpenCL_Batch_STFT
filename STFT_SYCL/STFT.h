@@ -16,17 +16,6 @@ private:
 #ifdef ON_UNIT_TEST
 public:
 #endif ON_UNIT_TEST
-	template<class data_in_T, class data_out_T, class ... Args>
-
-	void gpgpu_facade(
-		const std::string& CL_C_code, 
-		const std::string& CL_C_entry_name,
-		data_in_T*& in_data_P, 
-		const ma_uint64& in_data_length,
-		data_out_T*& out_data_P,
-		const ma_uint64& out_data_length,
-		const ma_uint64& core_size,
-		const Args& ... args);
 
 
 	cl_embed *CLS;
@@ -64,6 +53,20 @@ public:
 	float* cl_STFT(float* full_frame, const ma_uint64& full_length, const int& window_radix_2, const double& overlap_ratio, const int& both_side_z_padding_size, int& number_of_index);
 	cl_float3* three_bander(float* powered_STFT, const int& window_radix_size, int& low, int& mid, int& high, const int& quot);
 	//void STFT_TESTER();
+
+
+
+	template<class data_in_T, class data_out_T, class ... Args>
+
+	void gpgpu_facade(
+		const std::string& CL_C_code, 
+		const std::string& CL_C_entry_name,
+		data_in_T*& in_data_P, 
+		const ma_uint64& in_data_length,
+		data_out_T*& out_data_P,
+		const ma_uint64& out_data_length,
+		const ma_uint64& core_size,
+		const Args& ... args);
 };
 
 #ifndef NO_EMBEDDED_CL
