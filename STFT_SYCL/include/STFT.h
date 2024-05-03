@@ -112,6 +112,7 @@ OPENCL_ACC::gpgpu_facade(
 
 template <class data_in_T, class data_out_T, class ... Args>
 void
+__fastcall
 OPENCL_ACC::gpgpu_facade(
 	const std::string& CL_C_path,
 	const std::string& CL_C_entry_name,

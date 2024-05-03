@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.11)
+
+project(GPGPU_BATCH_STFT CXX)
+set(CMAKE_CXX_STANDARD 20)
+#add_subdirectory(gpgpu_lib)
+set(src_all ${CMAKE_SOURCE_DIR}/src/STFT.cpp ${CMAKE_SOURCE_DIR}/src/miniaudio.c ${CMAKE_SOURCE_DIR}/GPGPU_frame/src/cl_FACADE.cpp ${CMAKE_SOURCE_DIR}/GPGPU_frame/src/cl_global_custom.cpp)
+add_library(gpgpu_Bstft STATIC ${src_all} )
+message(${src_all})
+target_include_directories(gpgpu_Bstft PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(gpgpu_Bstft PUBLIC ${CMAKE_SOURCE_DIR}/GPGPU_frame/include)
+target_include_directories(gpgpu_Bstft PUBLIC ${CMAKE_SOURCE_DIR}/GPGPU_frame/OpenCL-SDK/install/include)
