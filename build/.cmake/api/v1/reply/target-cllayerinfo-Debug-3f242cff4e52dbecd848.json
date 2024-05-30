@@ -1,0 +1,425 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/opencl-build/external/OpenCL-ICD-Loader/cllayerinfo.exe"
+		},
+		{
+			"path" : "_deps/opencl-build/external/OpenCL-ICD-Loader/cllayerinfo.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"target_link_libraries",
+			"add_definitions",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"build/_deps/opencl-src/external/OpenCL-ICD-Loader/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 182,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 239,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 199,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 33,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 186,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 206,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 195,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu99"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "BUILD_TESTING=OFF"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_ENABLE_LAYERS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_LAYER_INFO"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_NO_NON_ICD_DISPATCH_EXTENSION_PROTOTYPES"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_TARGET_OPENCL_VERSION=300"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "OPENCL_ICD_LOADER_VERSION_MAJOR=3"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "OPENCL_ICD_LOADER_VERSION_MINOR=0"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "OPENCL_ICD_LOADER_VERSION_REV=6"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-build/external/OpenCL-ICD-Loader"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				4,
+				6,
+				10,
+				12,
+				14,
+				15,
+				17
+			]
+		},
+		{
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "BUILD_TESTING=OFF"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_ENABLE_LAYERS"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_LAYER_INFO"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_NO_NON_ICD_DISPATCH_EXTENSION_PROTOTYPES"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CL_TARGET_OPENCL_VERSION=300"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "OPENCL_ICD_LOADER_VERSION_MAJOR=3"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "OPENCL_ICD_LOADER_VERSION_MINOR=0"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "OPENCL_ICD_LOADER_VERSION_REV=6"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-build/external/OpenCL-ICD-Loader"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers"
+				}
+			],
+			"language" : "RC",
+			"sourceIndexes" : 
+			[
+				19
+			]
+		}
+	],
+	"id" : "cllayerinfo::@50d19c8876cdc5266f40",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/install"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Xlinker /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lcfgmgr32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lruntimeobject.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "cllayerinfo",
+	"nameOnDisk" : "cllayerinfo.exe",
+	"paths" : 
+	{
+		"build" : "_deps/opencl-build/external/OpenCL-ICD-Loader",
+		"source" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				4,
+				6,
+				10,
+				12,
+				14,
+				15,
+				17,
+				19,
+				20
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				5,
+				7,
+				8,
+				9,
+				11,
+				13,
+				16,
+				18
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/cllayerinfo.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd_version.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd_dispatch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd_dispatch.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd_dispatch_generated.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd_envvars.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/icd_platform.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/adapter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows_dxgk.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows_dxgk.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows_envvars.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows_hkr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows_hkr.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows_apppackage.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/icd_windows_apppackage.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/OpenCL.rc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader/loader/windows/OpenCL.def",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

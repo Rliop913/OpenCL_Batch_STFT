@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.cl": "opencl",
+        "string": "cpp",
+        "ostream": "cpp",
+        "utility": "cpp",
+        "cmath": "cpp",
+        "xstring": "cpp"
+    },
+    "OpenCL.explorer.localizedProperties": false
+}

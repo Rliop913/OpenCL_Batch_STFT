@@ -1,0 +1,8 @@
+[
+{
+  "directory": "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/Kcodes/KLPD/Lint_N_Preprocess/build",
+  "command": "C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\Llvm\\bin\\clang.exe -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/Kcodes/KLPD/Lint_N_Preprocess/include -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\Lint_N_Preprocess.dir\\src\\main.cpp.obj -c G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\STFT_SYCL\\Kcodes\\KLPD\\Lint_N_Preprocess\\src\\main.cpp",
+  "file": "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\STFT_SYCL\\Kcodes\\KLPD\\Lint_N_Preprocess\\src\\main.cpp",
+  "output": "CMakeFiles\\Lint_N_Preprocess.dir\\src\\main.cpp.obj"
+}
+]

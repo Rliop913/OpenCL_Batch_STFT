@@ -92,26 +92,12 @@ clboost::make_kernel(const Program& prog, const std::string& class_name)
 
 
 
-void 
-clboost::enq_q(CommandQueue& q, const Kernel& kernel, Event& this_event, const vector<Event>& wait_ev, const int global_size, const int local_size)
-{
-	ASSERT_UEQ(global_size, 0);
-	q.enqueueNDRangeKernel(kernel, NullRange, NDRange(global_size), (local_size==NULL?NullRange:NDRange(local_size)), &wait_ev, &this_event);
-	q.finish();
-	return;
-}
-void 
+cl_int 
 clboost::enq_q(CommandQueue& q, const Kernel& kernel, const int global_size, const int local_size)
 {
 	ASSERT_UEQ(global_size, 0);
-	q.enqueueNDRangeKernel(kernel, NullRange, NDRange(global_size), (local_size == NULL ? NullRange : NDRange(local_size)));
-	return;
-}
-
-
-Event
-clboost::make_event() {
-	return Event::Event();
+	return q.enqueueNDRangeKernel(kernel, NullRange, NDRange(global_size), (local_size == NULL ? NullRange : NDRange(local_size)));
+	
 }
 
 

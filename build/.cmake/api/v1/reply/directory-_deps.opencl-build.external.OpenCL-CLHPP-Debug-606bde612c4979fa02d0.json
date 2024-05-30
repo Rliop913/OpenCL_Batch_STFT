@@ -1,0 +1,115 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/_deps/opencl-src/external/OpenCL-CLHPP/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 81,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 96,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 102,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 114,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 138,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"build/_deps/opencl-src/external/OpenCL-CLHPP/include/CL"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLHeadersCpp",
+			"exportName" : "OpenCLHeadersCppTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "HeadersCpp::@fcea6efdbfe050064897",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-CLHPP/CMakeFiles/Export/2b0db3bbbc6145855e9bf06e61c3de2e/OpenCLHeadersCppTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLHeadersCpp",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-CLHPP/OpenCLHeadersCpp/OpenCLHeadersCppConfig.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLHeadersCpp",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-CLHPP/OpenCLHeadersCpp/OpenCLHeadersCppConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "share/pkgconfig",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-CLHPP/OpenCL-CLHPP.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/opencl-build/external/OpenCL-CLHPP",
+		"source" : "build/_deps/opencl-src/external/OpenCL-CLHPP"
+	}
+}

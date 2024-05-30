@@ -1,0 +1,200 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/_deps/opencl-src/external/OpenCL-ICD-Loader/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 230,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 239,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 258,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 264,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 276,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 281,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 292,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.lib"
+			],
+			"targetId" : "OpenCL::@50d19c8876cdc5266f40",
+			"targetIndex" : 0,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.dll"
+			],
+			"targetId" : "OpenCL::@50d19c8876cdc5266f40",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.pdb"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-ICD-Loader/cllayerinfo.exe"
+			],
+			"targetId" : "cllayerinfo::@50d19c8876cdc5266f40",
+			"targetIndex" : 2,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLICDLoader",
+			"exportName" : "OpenCLICDLoaderTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "OpenCL::@50d19c8876cdc5266f40",
+					"index" : 0
+				},
+				{
+					"id" : "cllayerinfo::@50d19c8876cdc5266f40",
+					"index" : 2
+				}
+			],
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/Export/0640f9797998f17d714471c1b4626b35/OpenCLICDLoaderTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLICDLoader",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCLICDLoader/OpenCLICDLoaderConfig.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLICDLoader",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCLICDLoader/OpenCLICDLoaderConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.lib"
+			],
+			"targetId" : "OpenCL::@50d19c8876cdc5266f40",
+			"targetIndex" : 0,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.dll"
+			],
+			"targetId" : "OpenCL::@50d19c8876cdc5266f40",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/opencl-build/external/OpenCL-ICD-Loader",
+		"source" : "build/_deps/opencl-src/external/OpenCL-ICD-Loader"
+	}
+}
