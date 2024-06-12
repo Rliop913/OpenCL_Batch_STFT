@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: OpenCL_BATCH_STFT
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Debug
+CONFIGURATION = Release
 # =============================================================================
 # Include auxiliary files.
 
@@ -41,7 +41,7 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target OpenCL_BATCH_STFT
+# Object build statements for STATIC_LIBRARY target OpenCL_BATCH_STFT
 
 
 #############################################
@@ -49,144 +49,52 @@ cmake_ninja_workdir = G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/S
 
 build cmake_object_order_depends_target_OpenCL_BATCH_STFT: phony || cmake_object_order_depends_target_OpenCL
 
-build CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.obj: CXX_COMPILER__OpenCL_BATCH_STFT_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/src/STFT.cpp || cmake_object_order_depends_target_OpenCL_BATCH_STFT
+build CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.obj: CXX_COMPILER__OpenCL_BATCH_STFT_unscanned_Release G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/src/STFT.cpp || cmake_object_order_depends_target_OpenCL_BATCH_STFT
   DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
   DEP_FILE = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\src\STFT.cpp.obj.d
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++20
+  FLAGS = -std=c++20 -O3 -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -std=gnu++20
   INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
   OBJECT_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir
   OBJECT_FILE_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\src
-  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\
+  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\OpenCL_BATCH_STFT.pdb
   TARGET_PDB = OpenCL_BATCH_STFT.pdb
 
-build CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj: CXX_COMPILER__OpenCL_BATCH_STFT_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp || cmake_object_order_depends_target_OpenCL_BATCH_STFT
+build CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj: CXX_COMPILER__OpenCL_BATCH_STFT_unscanned_Release G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp || cmake_object_order_depends_target_OpenCL_BATCH_STFT
   DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
   DEP_FILE = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\GPGPU_frame\src\cl_FACADE.cpp.obj.d
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++20
+  FLAGS = -std=c++20 -O3 -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -std=gnu++20
   INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
   OBJECT_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir
   OBJECT_FILE_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\GPGPU_frame\src
-  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\
+  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\OpenCL_BATCH_STFT.pdb
   TARGET_PDB = OpenCL_BATCH_STFT.pdb
 
-build CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj: CXX_COMPILER__OpenCL_BATCH_STFT_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp || cmake_object_order_depends_target_OpenCL_BATCH_STFT
+build CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj: CXX_COMPILER__OpenCL_BATCH_STFT_unscanned_Release G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp || cmake_object_order_depends_target_OpenCL_BATCH_STFT
   DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
   DEP_FILE = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\GPGPU_frame\src\cl_global_custom.cpp.obj.d
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++20
+  FLAGS = -std=c++20 -O3 -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -std=gnu++20
   INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
   OBJECT_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir
   OBJECT_FILE_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\GPGPU_frame\src
-  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\
-  TARGET_PDB = OpenCL_BATCH_STFT.pdb
-
-build CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/miniaudio.c.obj: C_COMPILER__OpenCL_BATCH_STFT_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/src/miniaudio.c || cmake_object_order_depends_target_OpenCL_BATCH_STFT
-  DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
-  DEP_FILE = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\src\miniaudio.c.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
-  INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
-  OBJECT_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir
-  OBJECT_FILE_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir\STFT_SYCL\src
-  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\
+  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\OpenCL_BATCH_STFT.pdb
   TARGET_PDB = OpenCL_BATCH_STFT.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target OpenCL_BATCH_STFT
+# Link build statements for STATIC_LIBRARY target OpenCL_BATCH_STFT
 
 
 #############################################
-# Link the executable OpenCL_BATCH_STFT.exe
+# Link the static library OpenCL_BATCH_STFT.lib
 
-build OpenCL_BATCH_STFT.exe: CXX_EXECUTABLE_LINKER__OpenCL_BATCH_STFT_Debug CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.obj CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/miniaudio.c.obj | _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.lib || _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.dll
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
-  LINK_FLAGS = -Xlinker /subsystem:console
-  LINK_LIBRARIES = _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
+build OpenCL_BATCH_STFT.lib: CXX_STATIC_LIBRARY_LINKER__OpenCL_BATCH_STFT_Release CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.obj CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj || _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.dll
+  LANGUAGE_COMPILE_FLAGS = -std=c++20 -O3 -DNDEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrt
   OBJECT_DIR = CMakeFiles\OpenCL_BATCH_STFT.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\
-  TARGET_FILE = OpenCL_BATCH_STFT.exe
-  TARGET_IMPLIB = OpenCL_BATCH_STFT.lib
+  TARGET_COMPILE_PDB = CMakeFiles\OpenCL_BATCH_STFT.dir\OpenCL_BATCH_STFT.pdb
+  TARGET_FILE = OpenCL_BATCH_STFT.lib
   TARGET_PDB = OpenCL_BATCH_STFT.pdb
-
-# =============================================================================
-# Object build statements for EXECUTABLE target test_module
-
-
-#############################################
-# Order-only phony target for test_module
-
-build cmake_object_order_depends_target_test_module: phony || cmake_object_order_depends_target_OpenCL
-
-build CMakeFiles/test_module.dir/STFT_SYCL/src/STFT.cpp.obj: CXX_COMPILER__test_module_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/src/STFT.cpp || cmake_object_order_depends_target_test_module
-  DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
-  DEP_FILE = CMakeFiles\test_module.dir\STFT_SYCL\src\STFT.cpp.obj.d
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++20
-  INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
-  OBJECT_DIR = CMakeFiles\test_module.dir
-  OBJECT_FILE_DIR = CMakeFiles\test_module.dir\STFT_SYCL\src
-  TARGET_COMPILE_PDB = CMakeFiles\test_module.dir\
-  TARGET_PDB = test_module.pdb
-
-build CMakeFiles/test_module.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj: CXX_COMPILER__test_module_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp || cmake_object_order_depends_target_test_module
-  DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
-  DEP_FILE = CMakeFiles\test_module.dir\STFT_SYCL\GPGPU_frame\src\cl_FACADE.cpp.obj.d
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++20
-  INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
-  OBJECT_DIR = CMakeFiles\test_module.dir
-  OBJECT_FILE_DIR = CMakeFiles\test_module.dir\STFT_SYCL\GPGPU_frame\src
-  TARGET_COMPILE_PDB = CMakeFiles\test_module.dir\
-  TARGET_PDB = test_module.pdb
-
-build CMakeFiles/test_module.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj: CXX_COMPILER__test_module_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp || cmake_object_order_depends_target_test_module
-  DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
-  DEP_FILE = CMakeFiles\test_module.dir\STFT_SYCL\GPGPU_frame\src\cl_global_custom.cpp.obj.d
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++20
-  INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
-  OBJECT_DIR = CMakeFiles\test_module.dir
-  OBJECT_FILE_DIR = CMakeFiles\test_module.dir\STFT_SYCL\GPGPU_frame\src
-  TARGET_COMPILE_PDB = CMakeFiles\test_module.dir\
-  TARGET_PDB = test_module.pdb
-
-build CMakeFiles/test_module.dir/STFT_SYCL/src/miniaudio.c.obj: C_COMPILER__test_module_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/src/miniaudio.c || cmake_object_order_depends_target_test_module
-  DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
-  DEP_FILE = CMakeFiles\test_module.dir\STFT_SYCL\src\miniaudio.c.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
-  INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
-  OBJECT_DIR = CMakeFiles\test_module.dir
-  OBJECT_FILE_DIR = CMakeFiles\test_module.dir\STFT_SYCL\src
-  TARGET_COMPILE_PDB = CMakeFiles\test_module.dir\
-  TARGET_PDB = test_module.pdb
-
-build CMakeFiles/test_module.dir/catch_tests/test.cpp.obj: CXX_COMPILER__test_module_unscanned_Debug G$:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/catch_tests/test.cpp || cmake_object_order_depends_target_test_module
-  DEFINES = -DBUILD_TESTING=OFF -DCL_HPP_TARGET_OPENCL_VERSION=300
-  DEP_FILE = CMakeFiles\test_module.dir\catch_tests\test.cpp.obj.d
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -std=gnu++20
-  INCLUDES = -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/STFT_SYCL/GPGPU_frame/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-CLHPP/include -IG:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/_deps/opencl-src/external/OpenCL-Headers
-  OBJECT_DIR = CMakeFiles\test_module.dir
-  OBJECT_FILE_DIR = CMakeFiles\test_module.dir\catch_tests
-  TARGET_COMPILE_PDB = CMakeFiles\test_module.dir\
-  TARGET_PDB = test_module.pdb
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target test_module
-
-
-#############################################
-# Link the executable test_module.exe
-
-build test_module.exe: CXX_EXECUTABLE_LINKER__test_module_Debug CMakeFiles/test_module.dir/STFT_SYCL/src/STFT.cpp.obj CMakeFiles/test_module.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj CMakeFiles/test_module.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj CMakeFiles/test_module.dir/STFT_SYCL/src/miniaudio.c.obj CMakeFiles/test_module.dir/catch_tests/test.cpp.obj | _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.lib || _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.dll
-  FLAGS = -std=c++20 -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
-  LINK_FLAGS = -Xlinker /subsystem:console
-  LINK_LIBRARIES = _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
-  OBJECT_DIR = CMakeFiles\test_module.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\test_module.dir\
-  TARGET_FILE = test_module.exe
-  TARGET_IMPLIB = test_module.lib
-  TARGET_PDB = test_module.pdb
 
 
 #############################################
@@ -912,13 +820,11 @@ build OpenCL: phony _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.dll
 
 build OpenCL.dll: phony _deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.dll
 
-build OpenCL_BATCH_STFT: phony OpenCL_BATCH_STFT.exe
+build OpenCL_BATCH_STFT: phony OpenCL_BATCH_STFT.lib
 
 build cllayerinfo: phony _deps/opencl-build/external/OpenCL-ICD-Loader/cllayerinfo.exe
 
 build cllayerinfo.exe: phony _deps/opencl-build/external/OpenCL-ICD-Loader/cllayerinfo.exe
-
-build test_module: phony test_module.exe
 
 # =============================================================================
 # Folder targets.
@@ -928,7 +834,7 @@ build test_module: phony test_module.exe
 #############################################
 # Folder: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build
 
-build all: phony OpenCL_BATCH_STFT.exe test_module.exe _deps/opencl-build/all
+build all: phony OpenCL_BATCH_STFT.lib _deps/opencl-build/all
 
 # =============================================================================
 

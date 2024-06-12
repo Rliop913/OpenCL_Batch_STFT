@@ -3,17 +3,6 @@ project("OpenCL_BATCH_STFT")
 
 Include(FetchContent)
 
-# FetchContent_Declare(
-#   Catch2
-#   GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-#   GIT_TAG        v3.4.0 # or a later release
-# )
-
-# FetchContent_MakeAvailable(Catch2)
-
-
-
-# include(ExternalProject)
 FetchContent_Declare(
   OpenCL
   GIT_REPOSITORY https://github.com/KhronosGroup/OpenCL-SDK.git
@@ -56,7 +45,6 @@ set(main_src
 ${CMAKE_SOURCE_DIR}/STFT_SYCL/src/STFT.cpp
 ${CMAKE_SOURCE_DIR}/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp
 ${CMAKE_SOURCE_DIR}/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp
-${CMAKE_SOURCE_DIR}/STFT_SYCL/src/miniaudio.c
 )
 
 set(test_src
@@ -75,18 +63,18 @@ include_directories(
   
   )
   
-  add_executable(${PROJECT_NAME} ${main_src})
-  add_executable(test_module ${main_src} ${test_src})
+  add_library(${PROJECT_NAME} STATIC ${main_src})
+  #add_executable(test_module ${main_src} ${test_src})
   add_definitions(-DCL_HPP_TARGET_OPENCL_VERSION=300)
   
   target_link_libraries(${PROJECT_NAME} PUBLIC
   OpenCL::OpenCL
   )
-  target_link_libraries(test_module PUBLIC
-  OpenCL::OpenCL
-  )
-  
-  
+  # target_link_libraries(test_module PUBLIC
+  # OpenCL::OpenCL
+  # )
+  set(CMAKE_BUILD_TYPE Release)
+
   
   
   if(WIN32)

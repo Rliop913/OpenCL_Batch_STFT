@@ -3290,6 +3290,18 @@
 			"value" : "ON"
 		},
 		{
+			"name" : "OpenCL_BATCH_STFT_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;OpenCL::OpenCL;"
+		},
+		{
 			"name" : "OpenCL_BATCH_STFT_SOURCE_DIR",
 			"properties" : 
 			[

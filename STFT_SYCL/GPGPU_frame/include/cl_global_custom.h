@@ -18,7 +18,8 @@ namespace clboost {
 	Buffer make_r_buf(const Context& ct, const int& size, T* data);
 	template <typename W>
 	Buffer make_w_buf(const Context& ct, const int& size);
-
+	template <typename TEMP>
+	Buffer make_temp_buf(const Context& ct, const int& size);
 	Kernel make_kernel(const Program& prog,const std::string& class_name);
 
 	template <typename... Args>
@@ -51,11 +52,19 @@ clboost::make_r_buf(const Context& ct, const int& size, T* data)
 {
 	return Buffer(ct, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(T) * size, data);
 }
+
 template<typename W>
 Buffer
 clboost::make_w_buf(const Context& ct, const int& size)
 {
 	return Buffer(ct, CL_MEM_WRITE_ONLY, sizeof(W) * size);
+}
+
+template<typename TEMP>
+Buffer
+clboost::make_temp_buf(const Context& ct, const int& size)
+{
+	return Buffer(ct, CL_MEM_READ_WRITE, sizeof(TEMP)* size);
 }
 
 

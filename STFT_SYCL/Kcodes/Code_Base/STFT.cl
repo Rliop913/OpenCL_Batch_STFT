@@ -15,25 +15,6 @@ void DC_remover(__global short* in, __local atomic_int* sums)
     barrier(CLK_LOCAL_MEM_FENCE);
     in[GID] -= convert_short(atomic_load(sums)/WINDOW_LENGTH);
 }
-__kernel void 
-overlap(__global short* in,
-        __global float2* out,
-        int overlap_frame,
-        TIDX frame_limit, 
-        int front_side_zero_padding_size)
-{
-    local atomic_int dc_avg;
-    atomic_init(&dc_avg, 0);
-    DC_remover(in, &dc_avg);
-    private TIDX quot = GID / WINDOW_LENGTH;
-    private TIDX my_index = quot * overlap_frame + LID;
-    private float will_write;
-    
-    will_write = frame_limit <= my_index ? 0 : convert_float(in[my_index]);
-    will_write = LID < front_side_zero_padding_size ? 0 : will_write;
-    out[GID].x = will_write;
-    out[GID].y = 0;
-}
 
 
 inline float 
@@ -170,11 +151,66 @@ void normalization()
 }
 
 
-__kernel void STFT(__global float2* in_frame, __global float* out_frame, int radix_window)
+
+__kernel void STFT( __global short* in,
+                    __global float2* tempBuffer,
+                    __global float* out,
+                    int overlapFrame,
+                    TIDX frameLimit,
+                    int FrontZeroPad,
+                    int windowRadix)
 {
+    local atomic_int dc_avg;
+    atomic_init(&dc_avg, 0);
+    DC_remover(in, &dc_avg);
+    private TIDX quot = GID / WINDOW_LENGTH;
+    private TIDX my_index = quot * overlapFrame + LID;
+    private float will_write;
     
-    windowing(in_frame);
-    bitreverse_stft(in_frame, radix_window);
-    butterfly_stft(in_frame, radix_window);
-    to_power(in_frame, out_frame);
+    will_write = frameLimit <= my_index ? 0 : convert_float(in[my_index]);
+    will_write = LID < FrontZeroPad ? 0 : will_write;
+    tempBuffer[GID].x = will_write;
+    tempBuffer[GID].y = 0;
+    windowing(tempBuffer);
+    bitreverse_stft(tempBuffer, windowRadix);
+    butterfly_stft(tempBuffer, windowRadix);
+    to_power(tempBuffer, out);
 }
+
+
+
+
+
+
+
+
+
+// __kernel void 
+// overlap(__global short* in,
+//         __global float2* out,
+//         int overlap_frame,
+//         TIDX frame_limit, 
+//         int front_side_zero_padding_size)
+// {
+//     local atomic_int dc_avg;
+//     atomic_init(&dc_avg, 0);
+//     DC_remover(in, &dc_avg);
+//     private TIDX quot = GID / WINDOW_LENGTH;
+//     private TIDX my_index = quot * overlap_frame + LID;
+//     private float will_write;
+    
+//     will_write = frame_limit <= my_index ? 0 : convert_float(in[my_index]);
+//     will_write = LID < front_side_zero_padding_size ? 0 : will_write;
+//     out[GID].x = will_write;
+//     out[GID].y = 0;
+// }
+
+
+// // __kernel void STFT(__global float2* in_frame, __global float* out_frame, int radix_window)
+// // {
+    
+// //     windowing(in_frame);
+// //     bitreverse_stft(in_frame, radix_window);
+// //     butterfly_stft(in_frame, radix_window);
+// //     to_power(in_frame, out_frame);
+// // }
