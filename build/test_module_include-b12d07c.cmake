@@ -1,0 +1,5 @@
+if(EXISTS "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/test_module_tests-b12d07c.cmake")
+  include("G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/build/test_module_tests-b12d07c.cmake")
+else()
+  add_test(test_module_NOT_BUILT-b12d07c test_module_NOT_BUILT-b12d07c)
+endif()

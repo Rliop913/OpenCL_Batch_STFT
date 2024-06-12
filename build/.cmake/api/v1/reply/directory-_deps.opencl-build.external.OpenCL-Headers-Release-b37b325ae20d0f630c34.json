@@ -1,0 +1,115 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/_deps/opencl-src/external/OpenCL-Headers/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 53,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 75,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 87,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 147,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"build/_deps/opencl-src/external/OpenCL-Headers/CL"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLHeaders",
+			"exportName" : "OpenCLHeadersTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "Headers::@140a5c5bf0ecc3cfa925",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/opencl-build/external/OpenCL-Headers/CMakeFiles/Export/0dba2fa5b18bfa3bc085552e04c3c8ba/OpenCLHeadersTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLHeaders",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-Headers/OpenCLHeaders/OpenCLHeadersConfig.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/OpenCLHeaders",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-Headers/OpenCLHeaders/OpenCLHeadersConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "share/pkgconfig",
+			"paths" : 
+			[
+				"build/_deps/opencl-build/external/OpenCL-Headers/OpenCL-Headers.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/opencl-build/external/OpenCL-Headers",
+		"source" : "build/_deps/opencl-src/external/OpenCL-Headers"
+	}
+}
