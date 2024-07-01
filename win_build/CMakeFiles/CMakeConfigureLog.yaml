@@ -1,0 +1,552 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+      빌드 시작: 2024-06-12 오후 4:24:28
+      
+      1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdC\\CompilerIdC.vcxproj" 프로젝트(기본 대상)입니다.
+      PrepareForBuild:
+        "Debug\\" 디렉터리를 만들고 있습니다.
+        구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+        "Debug\\CompilerIdC.tlog\\" 디렉터리를 만들고 있습니다.
+      InitializeBuildStatus:
+        "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\\CompilerIdC.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+        "Debug\\CompilerIdC.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdC\\CompilerIdC.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdC\\CompilerIdC.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+        배치 파일이 아닙니다.
+        "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdC\\CompilerIdC.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"" 명령이 종료되었습니다(코드: 9009).
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdC\\CompilerIdC.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
+        "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate"에 연결(touching)하고 있습니다.
+      "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdC\\CompilerIdC.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
+      
+      빌드했습니다.
+          경고 0개
+          오류 0개
+      
+      경과 시간: 00:00:01.14
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/3.26.0/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+      빌드 시작: 2024-06-12 오후 4:24:29
+      
+      1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdCXX\\CompilerIdCXX.vcxproj" 프로젝트(기본 대상)입니다.
+      PrepareForBuild:
+        "Debug\\" 디렉터리를 만들고 있습니다.
+        구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+        "Debug\\CompilerIdCXX.tlog\\" 디렉터리를 만들고 있습니다.
+      InitializeBuildStatus:
+        "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+        "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+        배치 파일이 아닙니다.
+        "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"" 명령이 종료되었습니다(코드: 9009).
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
+        "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate"에 연결(touching)하고 있습니다.
+      "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\3.26.0\\CompilerIdCXX\\CompilerIdCXX.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
+      
+      빌드했습니다.
+          경고 0개
+          오류 0개
+      
+      경과 시간: 00:00:01.13
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/3.26.0/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-ei668t"
+      binary: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-ei668t"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-ei668t
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_0141d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+        빌드 시작: 2024-06-12 오후 4:24:31
+        
+        1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\cmTC_0141d.vcxproj" 프로젝트(기본 대상)입니다.
+        PrepareForBuild:
+          "cmTC_0141d.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+          "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\" 디렉터리를 만들고 있습니다.
+        InitializeBuildStatus:
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0141d.dir\\Debug\\\\" /Fd"cmTC_0141d.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ 최적화 컴파일러 버전 19.38.33135(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0141d.dir\\Debug\\\\" /Fd"cmTC_0141d.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\Debug\\cmTC_0141d.exe" /INCREMENTAL /ILK:"cmTC_0141d.dir\\Debug\\cmTC_0141d.ilk" /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-ei668t/Debug/cmTC_0141d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-ei668t/Debug/cmTC_0141d.lib" /MACHINE:X64  /machine:x64 cmTC_0141d.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_0141d.vcxproj -> G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\Debug\\cmTC_0141d.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\Debug\\cmTC_0141d.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\cmTC_0141d.write.1u.tlog" "cmTC_0141d.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+          배치 파일이 아닙니다.
+          "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\Debug\\cmTC_0141d.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\cmTC_0141d.write.1u.tlog" "cmTC_0141d.dir\\Debug\\vcpkg.applocal.log"" 명령이 종료되었습니다(코드: 9009).
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\Debug\\cmTC_0141d.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\cmTC_0141d.write.1u.tlog" "cmTC_0141d.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
+          "cmTC_0141d.dir\\Debug\\cmTC_0141d.tlog\\cmTC_0141d.lastbuildstate"에 연결(touching)하고 있습니다.
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-ei668t\\cmTC_0141d.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
+        
+        빌드했습니다.
+            경고 0개
+            오류 0개
+        
+        경과 시간: 00:00:01.14
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-5yq8f0"
+      binary: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-5yq8f0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-5yq8f0
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f729e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+        빌드 시작: 2024-06-12 오후 4:24:32
+        
+        1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\cmTC_f729e.vcxproj" 프로젝트(기본 대상)입니다.
+        PrepareForBuild:
+          "cmTC_f729e.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+          "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\" 디렉터리를 만들고 있습니다.
+        InitializeBuildStatus:
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f729e.dir\\Debug\\\\" /Fd"cmTC_f729e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ 최적화 컴파일러 버전 19.38.33135(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f729e.dir\\Debug\\\\" /Fd"cmTC_f729e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\Debug\\cmTC_f729e.exe" /INCREMENTAL /ILK:"cmTC_f729e.dir\\Debug\\cmTC_f729e.ilk" /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-5yq8f0/Debug/cmTC_f729e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-5yq8f0/Debug/cmTC_f729e.lib" /MACHINE:X64  /machine:x64 cmTC_f729e.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_f729e.vcxproj -> G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\Debug\\cmTC_f729e.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\Debug\\cmTC_f729e.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\cmTC_f729e.write.1u.tlog" "cmTC_f729e.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+          배치 파일이 아닙니다.
+          "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\Debug\\cmTC_f729e.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\cmTC_f729e.write.1u.tlog" "cmTC_f729e.dir\\Debug\\vcpkg.applocal.log"" 명령이 종료되었습니다(코드: 9009).
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\scripts\\buildsystems\\msbuild\\applocal.ps1" "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\Debug\\cmTC_f729e.exe" "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\bin" "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\cmTC_f729e.write.1u.tlog" "cmTC_f729e.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\unsuccessfulbuild" 파일을 삭제하고 있습니다.
+          "cmTC_f729e.dir\\Debug\\cmTC_f729e.tlog\\cmTC_f729e.lastbuildstate"에 연결(touching)하고 있습니다.
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-5yq8f0\\cmTC_f729e.vcxproj" 프로젝트를 빌드했습니다(기본 대상).
+        
+        빌드했습니다.
+            경고 0개
+            오류 0개
+        
+        경과 시간: 00:00:01.17
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "win_build/_deps/opencl-src/external/OpenCL-ICD-Loader/CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-g30243"
+      binary: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-g30243"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-g30243
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_99e04.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+        빌드 시작: 2024-06-12 오후 4:24:52
+        
+        1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\cmTC_99e04.vcxproj" 프로젝트(기본 대상)입니다.
+        PrepareForBuild:
+          "cmTC_99e04.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+          "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_99e04.dir\\Debug\\cmTC_99e04.tlog\\" 디렉터리를 만들고 있습니다.
+        InitializeBuildStatus:
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_99e04.dir\\Debug\\cmTC_99e04.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "cmTC_99e04.dir\\Debug\\cmTC_99e04.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_99e04.dir\\Debug\\\\" /Fd"cmTC_99e04.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\src.c"
+          Microsoft (R) C/C++ 최적화 컴파일러 버전 19.38.33135(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_99e04.dir\\Debug\\\\" /Fd"cmTC_99e04.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\src.c"
+          src.c
+        G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\src.c(1,10): error C1083: 포함 파일을 열 수 없습니다. 'pthread.h': No such file or directory [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\cmTC_99e04.vcxproj]
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\cmTC_99e04.vcxproj" 프로젝트를 빌드했습니다(기본 대상). - 실패
+        
+        빌드하지 못했습니다.
+        
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\cmTC_99e04.vcxproj"(기본 대상)(1)->
+        (ClCompile 대상) -> 
+          G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\src.c(1,10): error C1083: 포함 파일을 열 수 없습니다. 'pthread.h': No such file or directory [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-g30243\\cmTC_99e04.vcxproj]
+        
+            경고 0개
+            오류 1개
+        
+        경과 시간: 00:00:00.50
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "win_build/_deps/opencl-src/external/OpenCL-ICD-Loader/CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-0pozet"
+      binary: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-0pozet"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-0pozet
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c135f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+        빌드 시작: 2024-06-12 오후 4:24:53
+        
+        1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\cmTC_c135f.vcxproj" 프로젝트(기본 대상)입니다.
+        PrepareForBuild:
+          "cmTC_c135f.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+          "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_c135f.dir\\Debug\\cmTC_c135f.tlog\\" 디렉터리를 만들고 있습니다.
+        InitializeBuildStatus:
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_c135f.dir\\Debug\\cmTC_c135f.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "cmTC_c135f.dir\\Debug\\cmTC_c135f.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c135f.dir\\Debug\\\\" /Fd"cmTC_c135f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ 최적화 컴파일러 버전 19.38.33135(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c135f.dir\\Debug\\\\" /Fd"cmTC_c135f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\Debug\\cmTC_c135f.exe" /INCREMENTAL /ILK:"cmTC_c135f.dir\\Debug\\cmTC_c135f.ilk" /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-0pozet/Debug/cmTC_c135f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-0pozet/Debug/cmTC_c135f.lib" /MACHINE:X64  /machine:x64 cmTC_c135f.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 'pthreads.lib' 파일을 열 수 없습니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\cmTC_c135f.vcxproj]
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\cmTC_c135f.vcxproj" 프로젝트를 빌드했습니다(기본 대상). - 실패
+        
+        빌드하지 못했습니다.
+        
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\cmTC_c135f.vcxproj"(기본 대상)(1)->
+        (Link 대상) -> 
+          LINK : fatal error LNK1104: 'pthreads.lib' 파일을 열 수 없습니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-0pozet\\cmTC_c135f.vcxproj]
+        
+            경고 0개
+            오류 1개
+        
+        경과 시간: 00:00:00.60
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "win_build/_deps/opencl-src/external/OpenCL-ICD-Loader/CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-q5ts3j"
+      binary: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-q5ts3j"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-q5ts3j
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e45dd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+        빌드 시작: 2024-06-12 오후 4:24:54
+        
+        1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\cmTC_e45dd.vcxproj" 프로젝트(기본 대상)입니다.
+        PrepareForBuild:
+          "cmTC_e45dd.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+          "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_e45dd.dir\\Debug\\cmTC_e45dd.tlog\\" 디렉터리를 만들고 있습니다.
+        InitializeBuildStatus:
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_e45dd.dir\\Debug\\cmTC_e45dd.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "cmTC_e45dd.dir\\Debug\\cmTC_e45dd.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e45dd.dir\\Debug\\\\" /Fd"cmTC_e45dd.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ 최적화 컴파일러 버전 19.38.33135(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e45dd.dir\\Debug\\\\" /Fd"cmTC_e45dd.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\Debug\\cmTC_e45dd.exe" /INCREMENTAL /ILK:"cmTC_e45dd.dir\\Debug\\cmTC_e45dd.ilk" /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-q5ts3j/Debug/cmTC_e45dd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-q5ts3j/Debug/cmTC_e45dd.lib" /MACHINE:X64  /machine:x64 cmTC_e45dd.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 'pthread.lib' 파일을 열 수 없습니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\cmTC_e45dd.vcxproj]
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\cmTC_e45dd.vcxproj" 프로젝트를 빌드했습니다(기본 대상). - 실패
+        
+        빌드하지 못했습니다.
+        
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\cmTC_e45dd.vcxproj"(기본 대상)(1)->
+        (Link 대상) -> 
+          LINK : fatal error LNK1104: 'pthread.lib' 파일을 열 수 없습니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-q5ts3j\\cmTC_e45dd.vcxproj]
+        
+            경고 0개
+            오류 1개
+        
+        경과 시간: 00:00:00.58
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckFunctionExists.cmake:91 (try_compile)"
+      - "win_build/_deps/opencl-src/external/OpenCL-ICD-Loader/CMakeLists.txt:62 (check_function_exists)"
+    checks:
+      - "Looking for secure_getenv"
+    directories:
+      source: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-53ota8"
+      binary: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-53ota8"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/_deps/opencl-src/external/OpenCL-ICD-Loader/cmake"
+    buildResult:
+      variable: "HAVE_SECURE_GETENV"
+      cached: true
+      stdout: |
+        Change Dir: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-53ota8
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_58ef6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+        빌드 시작: 2024-06-12 오후 4:24:55
+        
+        1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\cmTC_58ef6.vcxproj" 프로젝트(기본 대상)입니다.
+        PrepareForBuild:
+          "cmTC_58ef6.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+          "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_58ef6.dir\\Debug\\cmTC_58ef6.tlog\\" 디렉터리를 만들고 있습니다.
+        InitializeBuildStatus:
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_58ef6.dir\\Debug\\cmTC_58ef6.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "cmTC_58ef6.dir\\Debug\\cmTC_58ef6.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=secure_getenv /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_58ef6.dir\\Debug\\\\" /Fd"cmTC_58ef6.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ 최적화 컴파일러 버전 19.38.33135(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=secure_getenv /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_58ef6.dir\\Debug\\\\" /Fd"cmTC_58ef6.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\Debug\\cmTC_58ef6.exe" /INCREMENTAL /ILK:"cmTC_58ef6.dir\\Debug\\cmTC_58ef6.ilk" /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-53ota8/Debug/cmTC_58ef6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-53ota8/Debug/cmTC_58ef6.lib" /MACHINE:X64  /machine:x64 cmTC_58ef6.dir\\Debug\\CheckFunctionExists.obj
+        CheckFunctionExists.obj : error LNK2019: secure_getenvmain 함수에서 참조되는 확인할 수 없는 외부 기호 [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\cmTC_58ef6.vcxproj]
+        G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\Debug\\cmTC_58ef6.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\cmTC_58ef6.vcxproj]
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\cmTC_58ef6.vcxproj" 프로젝트를 빌드했습니다(기본 대상). - 실패
+        
+        빌드하지 못했습니다.
+        
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\cmTC_58ef6.vcxproj"(기본 대상)(1)->
+        (Link 대상) -> 
+          CheckFunctionExists.obj : error LNK2019: secure_getenvmain 함수에서 참조되는 확인할 수 없는 외부 기호 [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\cmTC_58ef6.vcxproj]
+          G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\Debug\\cmTC_58ef6.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-53ota8\\cmTC_58ef6.vcxproj]
+        
+            경고 0개
+            오류 2개
+        
+        경과 시간: 00:00:00.68
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckFunctionExists.cmake:91 (try_compile)"
+      - "win_build/_deps/opencl-src/external/OpenCL-ICD-Loader/CMakeLists.txt:63 (check_function_exists)"
+    checks:
+      - "Looking for __secure_getenv"
+    directories:
+      source: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-yllwhi"
+      binary: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-yllwhi"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/_deps/opencl-src/external/OpenCL-ICD-Loader/cmake"
+    buildResult:
+      variable: "HAVE___SECURE_GETENV"
+      cached: true
+      stdout: |
+        Change Dir: G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-yllwhi
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_9e046.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && msbuild 버전 17.8.5+b5265ef37(.NET Framework용)
+        빌드 시작: 2024-06-12 오후 4:24:56
+        
+        1 노드의 "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\cmTC_9e046.vcxproj" 프로젝트(기본 대상)입니다.
+        PrepareForBuild:
+          "cmTC_9e046.dir\\Debug\\" 디렉터리를 만들고 있습니다.
+          구조적 출력을 사용할 수 있습니다. 컴파일러 진단의 서식은 오류 계층 구조를 반영합니다. 자세한 내용은 https://aka.ms/cpp/structured-output을 참조하세요.
+          "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\Debug\\" 디렉터리를 만들고 있습니다.
+          "cmTC_9e046.dir\\Debug\\cmTC_9e046.tlog\\" 디렉터리를 만들고 있습니다.
+        InitializeBuildStatus:
+          "AlwaysCreate"이(가) 지정되었기 때문에 "cmTC_9e046.dir\\Debug\\cmTC_9e046.tlog\\unsuccessfulbuild"을(를) 만들고 있습니다.
+          "cmTC_9e046.dir\\Debug\\cmTC_9e046.tlog\\unsuccessfulbuild"에 연결(touching)하고 있습니다.
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=__secure_getenv /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9e046.dir\\Debug\\\\" /Fd"cmTC_9e046.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ 최적화 컴파일러 버전 19.38.33135(x64)
+          Copyright (c) Microsoft Corporation. All rights reserved.
+          cl /c /I"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=__secure_getenv /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9e046.dir\\Debug\\\\" /Fd"cmTC_9e046.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\Debug\\cmTC_9e046.exe" /INCREMENTAL /ILK:"cmTC_9e046.dir\\Debug\\cmTC_9e046.ilk" /NOLOGO /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\Users\\김지호\\Downloads\\vcpkg-2023.07.21\\vcpkg-2023.07.21\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-yllwhi/Debug/cmTC_9e046.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/win_build/CMakeFiles/CMakeScratch/TryCompile-yllwhi/Debug/cmTC_9e046.lib" /MACHINE:X64  /machine:x64 cmTC_9e046.dir\\Debug\\CheckFunctionExists.obj
+        CheckFunctionExists.obj : error LNK2019: __secure_getenvmain 함수에서 참조되는 확인할 수 없는 외부 기호 [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\cmTC_9e046.vcxproj]
+        G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\Debug\\cmTC_9e046.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\cmTC_9e046.vcxproj]
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\cmTC_9e046.vcxproj" 프로젝트를 빌드했습니다(기본 대상). - 실패
+        
+        빌드하지 못했습니다.
+        
+        "G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\cmTC_9e046.vcxproj"(기본 대상)(1)->
+        (Link 대상) -> 
+          CheckFunctionExists.obj : error LNK2019: __secure_getenvmain 함수에서 참조되는 확인할 수 없는 외부 기호 [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\cmTC_9e046.vcxproj]
+          G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\Debug\\cmTC_9e046.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다. [G:\\Dropbox\\Dropbox\\box_inside\\git_branch\\cpps\\STFT_SYCL\\STFT_SYCL\\win_build\\CMakeFiles\\CMakeScratch\\TryCompile-yllwhi\\cmTC_9e046.vcxproj]
+        
+            경고 0개
+            오류 2개
+        
+        경과 시간: 00:00:00.65
+        
+      exitCode: 1
+...

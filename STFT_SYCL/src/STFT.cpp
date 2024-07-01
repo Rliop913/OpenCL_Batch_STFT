@@ -1,5 +1,5 @@
 #include "STFT.h"
-
+#include <cmath>
 std::vector<std::pair<std::string, std::string>>
 OPENCL_ACC::get_platform_device_list()
 {
@@ -72,7 +72,7 @@ OPENCL_ACC::cl_STFT(short* full_frame, const ma_uint64& origin_len, const int& w
 {
 
     
-    int window_len = pow(2, (int)window_radix_2);
+    int window_len = std::pow(2, (int)window_radix_2);
     int overlaped_frame = (1.0 - overlap_ratio) * window_len;
     int fft_quotient = origin_len / (int)((double)window_len * (1.0 - overlap_ratio));
     number_of_frames = fft_quotient;

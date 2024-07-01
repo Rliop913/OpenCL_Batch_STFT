@@ -8,7 +8,8 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/KhronosGroup/OpenCL-SDK.git
   GIT_TAG        v2024.05.08 
 )
-
+find_path(TCLAP_INCLUDE_DIRS "tclap/Arg.h")
+#target_include_directories(main PRIVATE ${TCLAP_INCLUDE_DIRS})
 
 set(BUILD_TESTING OFF)
 set(BUILD_DOCS OFF)
@@ -26,7 +27,6 @@ add_definitions(-DBUILD_TESTING=OFF)
 # message(${CMAKE_CURRENT_BINARY_DIR}/_deps/stb-external-src)
 # set(Stb_INCLUDE_PATH ${CMAKE_CURRENT_BINARY_DIR}/_deps/stb-external-src)
 FetchContent_MakeAvailable(OpenCL)
-message(${opencl_BINARY_DIR})
 #add_subdirectory(${opencl_SOURCE_DIR})
 #enable_testing()
 #set(CMAKE_BUILD_TYPE Release)
@@ -52,7 +52,6 @@ set(test_src
 ${CMAKE_SOURCE_DIR}/catch_tests/test.cpp
 )
 
-message(${CMAKE_BINARY_DIR}/cldir)
 include_directories(
   ${CMAKE_SOURCE_DIR}/STFT_SYCL/include
   ${CMAKE_SOURCE_DIR}/STFT_SYCL/GPGPU_frame/include

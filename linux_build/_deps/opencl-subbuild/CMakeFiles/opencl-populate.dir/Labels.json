@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/CMakeFiles/opencl-populate"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/CMakeFiles/opencl-populate.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/CMakeFiles/opencl-populate-complete.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-install.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-mkdir.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-download.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-update.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-patch.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-configure.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-build.rule"
+		},
+		{
+			"file" : "/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-subbuild/opencl-populate-prefix/src/opencl-populate-stamp/opencl-populate-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"opencl-populate"
+		],
+		"name" : "opencl-populate"
+	}
+}

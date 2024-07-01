@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\cllayerinfo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd_dispatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd_dispatch_generated.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows_dxgk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows_envvars.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows_hkr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows_apppackage.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd_version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd_dispatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd_envvars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\icd_platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\adapter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows_dxgk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows_hkr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\icd_windows_apppackage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\OpenCL.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\opencl-src\external\OpenCL-ICD-Loader\loader\windows\OpenCL.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3F87DCC9-A38E-3CC6-A9F1-CD588E6D4FCB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E51AD9FA-2984-3736-A297-63F85A78E92A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

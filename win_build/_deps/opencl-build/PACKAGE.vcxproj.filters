@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\CMakeFiles\b0aa9790d3e763431e8eb9c308c263d7\PACKAGE_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4A7A09E4-E14C-3F7B-9370-BBEB851FF44A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

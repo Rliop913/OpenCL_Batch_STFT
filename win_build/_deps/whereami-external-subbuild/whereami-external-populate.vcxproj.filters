@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\c6df90f51ac37863278a1202c4f46ff0\whereami-external-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\94a6ba1f638bfdc90f6f5f2292f5445f\whereami-external-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\32d4d4e74cda3c35e43b8ac1efa73a51\whereami-external-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\whereami-external-subbuild\CMakeFiles\whereami-external-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{5F5C9646-64E7-3DCD-BAFD-B17BE67CF242}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

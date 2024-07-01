@@ -1,0 +1,3 @@
+repository='https://github.com/likle/cargs.git'
+module=''
+tag='origin'

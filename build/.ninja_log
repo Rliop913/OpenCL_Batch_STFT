@@ -2,8 +2,8 @@
 6971	8227	7385859073413263	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/internal/catch_case_insensitive_comparisons.cpp.obj	e0b90cc79f9c9325
 5457	7583	7385859066773300	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/catch_message.cpp.obj	233d2bf38c95a62f
 173	303	7385853346595587	_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/OpenCL.dir/loader/windows/OpenCL.rc.res	d2875429897e1768
-14	2048	7398772490383578	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.obj	7fadb7eab9b5866f
-308	3338	7398757778771405	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj	ae7ebae9a2d4cb6
+13	2285	7398777090100185	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.obj	7796927962866e08
+36	2267	7398777089940214	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj	7780c5a1bef07680
 152	2121	7385860179500458	_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/OpenCL.dir/loader/windows/icd_windows_envvars.c.obj	7f2d5da09f589c76
 170	2124	7385860179550472	_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/OpenCL.dir/loader/windows/icd_windows_hkr.c.obj	867141c8d44c0f89
 117	2113	7385860179390465	_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/OpenCL.dir/loader/windows/icd_windows.c.obj	909fdd16bd38843
@@ -22,7 +22,7 @@
 72	1959	7385860177790488	_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/OpenCL.dir/loader/icd.c.obj	b5c268c3bf4f588f
 6216	8365	7385859074613243	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/catch_tostring.cpp.obj	9bcc1a79e06035f
 101	2287	7385860181220450	_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/OpenCL.dir/loader/icd_dispatch_generated.c.obj	aa97917a3c0bd75e
-295	2890	7398757774110993	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj	e887d4d41184e05b
+25	1741	7398777084689788	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj	52d9e36f614ffe0d
 2287	2749	7385860181220450	_deps/opencl-build/external/OpenCL-ICD-Loader/OpenCL.lib	1b33c9a462242e02
 351	542	7386543139011602	CMakeFiles/test_module.dir/catch_tests/test.cpp.obj	b66da33dc9a2ef61
 2488	3643	7385859027633227	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/reporters/catch_reporter_registrars.cpp.obj	3061bf72df326fe4
@@ -139,8 +139,4 @@
 86	1779	7385871411372352	_deps/opencl-build/external/OpenCL-ICD-Loader/CMakeFiles/cllayerinfo.dir/loader/windows/icd_windows.c.obj	1613a4b3d50ac86d
 34	268	7385871881290141	_deps/opencl-build/external/OpenCL-ICD-Loader/cllayerinfo.exe	bceeb38943becc62
 15116	15279	7385859143823212	_deps/catch2-build/src/Catch2d.lib	60762190034d9c5b
-2049	2305	7398772492029176	OpenCL_BATCH_STFT.lib	f9cfb2c9662b853f
-25	1741	7398777084689788	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.obj	52d9e36f614ffe0d
-36	2267	7398777089940214	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.obj	7780c5a1bef07680
-13	2285	7398777090100185	CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.obj	7796927962866e08
 2285	2395	7398777091020181	OpenCL_BATCH_STFT.lib	2dac78ed7fa3a9d8

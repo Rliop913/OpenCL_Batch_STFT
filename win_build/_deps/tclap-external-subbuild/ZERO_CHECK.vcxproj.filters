@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\91b0fa79eee2da1db0e851a5211f3278\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BD3207E8-FC0D-3EA8-AC43-753DF77AAD4A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

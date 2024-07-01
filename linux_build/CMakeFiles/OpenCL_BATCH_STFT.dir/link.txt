@@ -1,0 +1,2 @@
+/usr/bin/ar qc libOpenCL_BATCH_STFT.a CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/src/STFT.cpp.o CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_FACADE.cpp.o CMakeFiles/OpenCL_BATCH_STFT.dir/STFT_SYCL/GPGPU_frame/src/cl_global_custom.cpp.o
+/usr/bin/ranlib libOpenCL_BATCH_STFT.a

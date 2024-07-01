@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\be15fb82328ac095f39cde9199df1555\tclap-external-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\1d0bc7c87a768c6aaa5464661cfca04b\tclap-external-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\91b0fa79eee2da1db0e851a5211f3278\tclap-external-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Dropbox\Dropbox\box_inside\git_branch\cpps\STFT_SYCL\STFT_SYCL\win_build\_deps\tclap-external-subbuild\CMakeFiles\tclap-external-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BD3207E8-FC0D-3EA8-AC43-753DF77AAD4A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

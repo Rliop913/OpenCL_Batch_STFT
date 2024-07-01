@@ -1,0 +1,3 @@
+repository='https://github.com/KhronosGroup/OpenCL-SDK.git'
+module=''
+tag='origin'

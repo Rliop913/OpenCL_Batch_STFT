@@ -1,0 +1,9 @@
+prefix=/mnt/g/Dropbox/Dropbox/box_inside/git_branch/cpps/STFT_SYCL/STFT_SYCL/linux_build/_deps/opencl-src/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: OpenCL
+Description: Khronos OpenCL ICD Loader
+Requires: OpenCL-Headers
+Version: 3.0
+Libs: -L${libdir} -lOpenCL
